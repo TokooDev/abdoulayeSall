@@ -1,0 +1,90 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+table, td, th {
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+    table {
+        border-collapse: collapse;
+        width: 50%;
+        text-align: center;
+        margin-left: 30%;
+        margin-top: 10px;
+        background: rgba(20,100,45,0.7);
+    }
+    th, td {
+        padding: 10px;
+    }
+    tr:nth-child(even) {background: rgba(20,200,55,0.7);}
+.titre{
+	text-align: center;
+	color: rgba(20,200,55,0.7);
+}
+.form {
+	position: relative;
+	width: 30%;
+	height: 500px;
+	float: left;
+	margin-top: 200px;
+	text-align: center;
+	vertical-align: middle;
+	margin: 10px;
+	padding: 20px;
+	background: rgba(20,200,55,0.7);
+	overflow: hidden;
+	z-index: 1;
+	position: absolute;
+}
+.result{
+  position: relative;
+	background-color: black;
+	width: 62%;
+  left: 480px;
+	height: 100%;
+	color: white;
+	float: left;
+	padding-left: 20px;
+	margin-top: 10px;
+}
+form {
+	z-index: 3;
+	width: 100%;
+	height: 100%;
+}
+h3 {
+  font-family: "Arial", sans-serif;
+  letter-spacing: 2.3px;
+  font-weight: lighter;
+  font-size: 24.5px;
+  text-shadow: 3px 5px 6px rgba(51,33,22,0.7);
+}
+.in-name {
+  width: 370px;
+  height: 60px;
+	padding: 10px;
+  border: 1px solid rgba(20,200,55,0.7);
+  border-radius: 5px 5px 5px 5px;
+	font-size: 16.6px;
+}
+.btn {
+	width: 120px;
+  height: 40px;
+  font-size: 12px;
+  border-radius: 8px 8px 8px 8px;
+	line-height: 1.2;
+	text-align: center;
+	vertical-align: middle;
+	border: none;
+	padding: 10px;
+	margin: 10px;
+	background: none;
+	color: #ffffff;
+	overflow: hidden;
+	letter-spacing: 2px;
+}
+.btn-validate {
+	background: rgba(23,52,132,0.6);
+	transition: all 0.6s ease 0s;
+}

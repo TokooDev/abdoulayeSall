@@ -25,7 +25,22 @@ table, td, th {
 .form {
 	position: relative;
 	width: 30%;
-	height: 500px;
+	height: 100%;
+	float: left;
+	margin-top: 200px;
+	text-align: center;
+	vertical-align: middle;
+	margin: 10px;
+	padding: 20px;
+	background: rgba(20,200,55,0.7);
+	overflow: hidden;
+	z-index: 1;
+	position: absolute;
+}
+.form-exo3 {
+	position: relative;
+	width: 30%;
+	height: 200%;
 	float: left;
 	margin-top: 200px;
 	text-align: center;
@@ -67,6 +82,22 @@ h3 {
   border: 1px solid rgba(20,200,55,0.7);
   border-radius: 5px 5px 5px 5px;
 	font-size: 16.6px;
+}
+.in-word {
+  width: 300px;
+  height: 20px;
+  margin: 2px;
+  padding: 5px;
+  border: 1px solid rgba(20,200,55,0.7);
+  border-radius: 5px 5px 5px 5px;
+  font-size: 12px;
+}
+.nbreMotAvecM{
+  width: 50px;
+  height: 50px;
+  border:1px solid rgba(20,200,55,0.7);
+  border-radius: 50% 50%;
+  background-color: rgba(20,200,55,0.7);
 }
 .btn {
 	width: 120px;

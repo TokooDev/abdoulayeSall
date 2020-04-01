@@ -1,21 +1,3 @@
-<?php 
-    function est_caractere($car){
-        return (($car >= 'a' && $car <= 'z') || $car >= 'A' && $car <= 'Z');
-        
-    }
-
-    function est_chaine($chaine){
-        $n=size_t($chaine);
-        for ($i=0; $i <$n ; $i++) { 
-            if (!est_caractere($chaine[$i])) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,99 +22,100 @@
 	<div class="result">
 			<h2 class="titre">Résultat de l'algorithme</h2>
 					<?php
-if(isset($_POST['valider'])) {
-    if(empty($_POST['phrase']) or preg_match("#[0-9]#", $_POST['phrase'])){
-            echo "<h2>Vueillez donner des phrases svp</h2>";
-        }
-        else{
-            $phrases = $_POST['phrase'];
-            function size($chaine){
-            for ($i=0; true ; $i++) { 
-                if (!isset($chaine[$i])) {
-                    break;
-                }
-                }
-                return $i;
-            }
 
-            function Table_Phrase($valeur)
-            {
-                $n = str_replace(CHR(32), "", $valeur);
-                $chaine = preg_split("/[.]+/", $valeur);
-                $size = 0;
-                $size = size($chaine);
-                $debut = 0;
-                $fin = $size;
-                $T[] = array();
-                    if (($chaine[0] == "" && $chaine[$size - 1] == "")) {
-                        $debut = 1;
-                        $fin = $size - 2;
-                        for ($i = $debut; $i < $fin; $i++) {
-                            if (preg_match("#[.]#", $chaine)) {
-                                if (strlen($chaine[$i]) <= 200) {
-                                    $T[] = $chaine[$i];
-                                }else{
-                                    echo "La phrase n ° ".$i." a dépassé 200 caractère";
+                        if(isset($_POST['valider'])) {
+                            if(empty($_POST['phrase'])){
+                                    echo "<h2>Vueillez donner des phrases svp</h2>";
                                 }
-                            }
-                        }
-                    } elseif (($chaine[0] != "") && ($chaine[$size - 1] == "") || $chaine[$size-1] == " ") {
-                        $debut = 0;
-                        $fin = $size - 1;
-                        for ($i = $debut; $i < $fin; $i++) {
-                            if (preg_match("#[.]#", $valeur)) {
-                                if (strlen($chaine[$i]) <= 200) {
-                                    $T[] = $chaine[$i];
-                                }else{
-                                    echo "La phrase n ° ".$i." a dépassé 200 caractère";
-                                }
-                            }
-                        }
-                    } elseif (($chaine[0] != "") && $chaine[$size - 1] != "") {
-                        $debut = 0;
-                        $fin = $size;
-                        for ($i = $debut; $i < $fin; $i++) {
-                            if (preg_match("#[.]#", $valeur)) {
-                                if (strlen($chaine[$i]) <= 200) {
-                                    $T[] = $chaine[$i];
-                                }else{
-                                    echo "La phrase n ° ".$i." a dépassé 200 caractère";
-                                }
-                            }
-                        }
+                                else{
+                                    $phrases = $_POST['phrase'];
+                                    function size($chaine){
+                                    for ($i=0; true ; $i++) { 
+                                        if (!isset($chaine[$i])) {
+                                            break;
+                                        }
+                                        }
+                                        return $i;
+                                    }
 
-                    }
-                    return $T;
-            }
-            
-            function del_espace($phrases){
-            $new='';
-            for ($i=0; $i <size($phrases) ; $i++) { 
-                if ($phrases[$i] != '') {
-                    $new .= $phrases[$i];
-                }
-            }
-                return $new;
-            }
-            echo "<h2>Tableau des phrases corrigées</h2>";
+                                    function Table_Phrase($valeur)
+                                    {
+                                        $n = str_replace(CHR(32), "", $valeur);
+                                        $chaine = preg_split("/[.]+/", $valeur);
+                                        $size = 0;
+                                        $size = size($chaine);
+                                        $debut = 0;
+                                        $fin = $size;
+                                        $T[] = array();
+                                            if (($chaine[0] == "" && $chaine[$size - 1] == "")) {
+                                                $debut = 1;
+                                                $fin = $size - 2;
+                                                for ($i = $debut; $i < $fin; $i++) {
+                                                    if (preg_match("#[.]#", $chaine)) {
+                                                        if (strlen($chaine[$i]) <= 200) {
+                                                            $T[] = $chaine[$i];
+                                                        }else{
+                                                            echo "La phrase n ° ".$i." a dépassé 200 caractère";
+                                                        }
+                                                    }
+                                                }
+                                            } elseif (($chaine[0] != "") && ($chaine[$size - 1] == "") || $chaine[$size-1] == " ") {
+                                                $debut = 0;
+                                                $fin = $size - 1;
+                                                for ($i = $debut; $i < $fin; $i++) {
+                                                    if (preg_match("#[.]#", $valeur)) {
+                                                        if (strlen($chaine[$i]) <= 200) {
+                                                            $T[] = $chaine[$i];
+                                                        }else{
+                                                            echo "La phrase n ° ".$i." a dépassé 200 caractère";
+                                                        }
+                                                    }
+                                                }
+                                            } elseif (($chaine[0] != "") && $chaine[$size - 1] != "") {
+                                                $debut = 0;
+                                                $fin = $size;
+                                                for ($i = $debut; $i < $fin; $i++) {
+                                                    if (preg_match("#[.]#", $valeur)) {
+                                                        if (strlen($chaine[$i]) <= 200) {
+                                                            $T[] = $chaine[$i];
+                                                        }else{
+                                                            echo "La phrase n ° ".$i." a dépassé 200 caractère";
+                                                        }
+                                                    }
+                                                }
 
-            $tableau_phrases = Table_Phrase($phrases);
-            foreach ($tableau_phrases as $key=>$phrases){
-                $phrases=del_espace($phrases);
-                if($key!=0) {
+                                            }
+                                            return $T;
+                                    }
+                                    
+                                    function del_espace($phrases){
+                                    $new='';
+                                    for ($i=0; $i <size($phrases) ; $i++) { 
+                                        if ($phrases[$i] != '') {
+                                            $new .= $phrases[$i];
+                                        }
+                                    }
+                                        return $new;
+                                    }
+                                    echo "<h2>Tableau des phrases corrigées</h2>";
+
+                                    $tableau_phrases = Table_Phrase($phrases);
+                                    foreach ($tableau_phrases as $key=>$phrases){
+                                        $phrases=del_espace($phrases);
+                                        if($key!=0) {
+                                            ?>
+                                            <table>
+                                                <tr>
+                                                    <td><textarea disabled="true" class="in-name"><?php echo $phrases; ?></textarea> </td>
+                                                </tr>
+                                            </table><br>
+                                        <?php
+                                        }
+                                    }
+                                }
+                            
+                        }
                     ?>
-                    <table>
-                        <tr>
-                            <td><textarea disabled="true" class="in-name"><?php echo $phrases; ?></textarea> </td>
-                        </tr>
-                    </table><br>
-                <?php
-                }
-            }
-        }
-    
-}
-?>
 	</div>
 </div>
 

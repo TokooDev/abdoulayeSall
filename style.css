@@ -78,10 +78,18 @@ h3 {
 .in-name {
   width: 370px;
   height: 60px;
-	padding: 10px;
+  padding: 10px;
   border: 1px solid rgba(20,200,55,0.7);
   border-radius: 5px 5px 5px 5px;
-	font-size: 16.6px;
+  font-size: 16.6px;
+}
+.in-textarea {
+  width: 380px;
+  height: 400px;
+  padding: 8px;
+  border: 1px solid rgba(20,200,55,0.7);
+  border-radius: 5px 5px 5px 5px;
+  font-size: 15px;
 }
 .in-word {
   width: 300px;

@@ -1,0 +1,432 @@
+body{
+	background-image: url('../images/img-bg.jpg');
+	background-size: cover;
+	margin: 0px;
+	padding: 0px;
+	font-family: open sans;
+}
+/*Page de connexion*/
+.header{
+	width: 100%;
+	height: 80px;
+	display: flex;
+	background-color: black;
+	color: white;
+}
+.logo{
+	width: 40%;
+	height: 100%;
+	margin-left: 20px;
+	margin-top: 5px;
+}
+.title{
+	width: 60%;
+	height: 100%;
+	font-size: 18px;
+	margin-top: -12px;
+}
+.content{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.login{
+	position: absolute;
+	top: 80px;
+	left: 30%;
+	width: 42%;
+	height: 400px;
+	background-color: #f5efef;
+}
+.login-header{
+	position: relative;
+	color: white;
+	width: 97%;
+	height: 60px;
+	background-color: #60c1e2;
+	padding-top: 15px;
+	padding-left: 18px;
+	font-size: 25px;
+}
+.btn-leave{
+	float: right;
+	margin-right: 20px;
+	font-weight: bold;
+}
+.login-content{
+	position: relative;
+	top: 25px;
+	left: 20px;
+	width: 100%;
+}
+.section{
+	width: 88%;
+	height: 30px;
+	border: 1px solid #d2cece;
+	background-color: #f5f2f2;
+	border-radius: 5px 5px 5px 5px;
+	padding: 20px;
+	margin-bottom: 30px;
+}
+.input{
+	width: 90%;
+	height: 25px;
+	background-color: #f5f2f2;
+	font-size: 18px;
+	border: none;
+	padding-left: 5px;
+}
+.btn-blue{
+	width: 150px;
+	height: 50px;
+	border: 1px solid #60c1e2;
+	background-color: #60c1e2;
+	border-radius: 5px 5px 5px 5px;
+	font-size: 15px;
+	color: white;
+}
+.inscription-link{
+	text-decoration: none;
+	color: #585252;
+	margin-left: 50px;
+}
+
+/*Page inscription*/
+.sign-up{
+	position: absolute;
+	padding-left: 20px;
+	top: 5px;
+	left: 15%;
+	width: 70%;
+	height: 730px;
+	background-color: #f5efef;
+	border-radius: 8px 8px 8px 8px;
+}
+.left{
+	position: relative;
+	float: left;
+	width: 70%;
+
+}
+.sign-up-title{
+	font-size: 15px;
+	margin-top: -25px;
+	color: #585252;
+}
+.form-limit{
+	width: 600px;
+	margin-left: -20px;
+	margin-bottom: -20px;
+}
+.sign-up-input{
+	width: 80%;
+	height: 50px;
+	margin-top: -12px;
+	background-color: #f5efef;
+	border: 1px solid #afaeae;
+	border-radius: 5px 5px 5px 5px;
+	font-size: 18px;
+	padding-left: 5px;
+}
+.sign-up-label{
+	color: #6d6a6a;
+	font-size: 20px;
+}
+.avatar-input{
+	height: 30px;
+	padding-top: 5px;
+	float: right;
+	margin-right: 125px;
+	border: 1px solid #60c1e2;
+	background-color: #60c1e2;
+	border-radius: 5px 5px 5px 5px;
+}
+.btn-sign-up{
+	margin-top: 20px;
+	width: 200px;
+	height: 50px;
+	border: 1px solid #60c1e2;
+	background-color: #60c1e2;
+	border-radius: 5px 5px 5px 5px;
+	font-size: 25px;
+	color: white;
+}
+.right{
+	position: relative;
+	float: left;
+	width: 30%;
+	padding-top: 50px;
+}
+/*Interface admin*/
+.admin-home-header{
+	position: relative;
+	color: white;
+	margin-top: 5px;
+	width: 98%;
+	padding-top: 10px;
+	margin-left: 15px;
+	height: 80px;
+	background-color: #60c1e2;
+	font-size: 12px;
+}
+.admin-home-text{
+	margin-left: 350px;
+	width: 50%;
+}
+.logout{
+	position: absolute;
+	top: 30px;
+	left: 85%;
+	width: 20%;
+	font-size: 20px;
+	width: 150px;
+	height: 30px;
+	padding-left: 15px;
+	padding-top: 4px;
+	background-color: #5fefde;
+}
+.btn-logout{
+	text-decoration: none;
+	color: white;
+}
+.admin-home-content{
+	position: relative;
+	margin-left: 15px;
+	width: 98%;
+	height: 730px;
+	background-color: #e3e5e6;
+}
+.side-navbar{
+	position: relative;
+	float: left;
+	left: 20px;
+	top: 80px;
+	width: 35%;
+
+
+}
+.side-navbar-header{
+	position: relative;
+	width: 100%;
+	height: 150px;
+	border: 1px solid #60c1e2;
+	background-color: #60c1e2;
+	border-radius: 8px 8px 0px 0px;
+}
+.profil-avatar{
+	width: 120px;
+	height: 120px;
+	padding: 5px;
+	position: absolute;
+	top: 10px;
+	left: 20px;
+	border-radius: 50% 50%;
+	border:1px solid #4c4c4c5c;
+}
+.img-avatar{
+	width: 98%;
+}
+.profil-text{
+	position: absolute;
+	top: 30px;
+	left: 200px;
+	color: white;
+	font-size: 25px;
+}
+.side-navbar-content{
+	position: relative;
+	width: 100%;
+	height: 150px;
+	border: 1px solid white;
+	background-color: white;
+}
+.list-item{
+	text-decoration: none;
+	width: 90%;
+	height: 30px;
+	padding-left: 45px;
+	padding-top: 8px;
+}
+.nav-link{
+	text-decoration: none;
+	font-size: 18px;
+	color: gray;
+
+}
+.list-item-active{
+	text-decoration: none;
+	width: 90%;
+	height: 30px;
+	background-color: #e3e5e6;
+	padding-left: 45px;
+	padding-top: 8px;
+	border-left: 2px solid green;
+
+}
+.navbar-icon{
+	float: right;
+	margin-right: 10px;
+}
+.content-to-load{
+	position: relative;
+	width: 60%;
+	float: left;
+	top: 40px;
+	margin-left: 50px;
+	background-color: white;
+	border-radius: 8px 8px 8px 8px;
+}
+/*Page de création d'un admin*/
+.create-admin{
+	width: 100%;
+	height: 680px;
+	padding-left: 25px;
+}
+.create-admin-title{
+	font-size: 12px;
+	margin-top: -25px;
+	color: #585252;
+}
+.create-admin-limiter{
+	width: 500px;
+	margin-left: -20px;
+	margin-bottom: -20px;
+}
+.create-admin-input{
+	width: 70%;
+	height: 40px;
+	margin-top: -15px;
+	border: 1px solid #afaeae;
+	border-radius: 5px 5px 5px 5px;
+	font-size: 18px;
+	padding-left: 5px;
+}
+.create-admin-label{
+	color: #6d6a6a;
+	font-size: 15px;
+}
+/*Page liste des joueurs*/
+.players-list{
+	width: 100%;
+	margin-left: 150px;
+	color: gray;
+}
+.players-list-title{
+	font-size: 20px;
+	margin-left: 120px;
+}
+.table{
+	padding-left: 10px;
+	border:1px solid #60c1e2;
+	border-radius: 45px 45px 45px 45px;
+}
+thead{
+	font-weight: bolder;
+}
+td{
+	text-align: center;
+	width: 200px;
+	height: 50px;
+	margin-left: 10px;
+}
+/*Liste des questions*/
+.questions-list{
+	width: 100%;
+	margin-left: 100px;
+	color: gray;
+	border-radius: 10% 10%;
+}
+.questions-list-title{
+	font-size: 20px;
+	margin-left: 180px;
+}
+/*creéation des questions*/
+.questions-creation{
+	position: relative;
+	width: 75%;
+	height: 530px;
+	padding: 30px;
+	margin-left: 80px;
+	color: gray;
+	border:2px solid #60c1e2;
+	border-radius: 10% 10%;
+
+}
+.questions-creation-title{
+	color: #60c1e2;
+	margin-left: 80px;
+	font-size: 30px;
+	font-weight: bold;
+}
+.create-question-section{
+	position: relative;
+	width: 100%;
+	height: 50px;
+	margin-bottom: 30px;
+}
+.create-question-label{
+	position: absolute;
+	width: 40%;
+	height: 100%;
+	font-size: 25px;
+}
+.create-question-textarea{
+	float: right;
+	width: 70%;
+	height: 100%;
+	background-color: #fbfbfb;
+	border:none;
+	border-right: 0.8px solid #60c1e2;
+	border-bottom: 0.8px solid #60c1e2; 
+	border-radius: 3px 3px 3px 3px;
+}
+.create-question-input{
+	float: left;
+	margin-left: 200px;
+	width: 15%;
+	height: 80%;
+	color: #60c1e2;
+	border:none;
+	border-right: 0.8px solid #60c1e2;
+	border-bottom: 0.8px solid #60c1e2;
+}
+.create-question-select{
+	float: left;
+	margin-left: 220px;
+	width: 340px;
+	height: 50px;
+	color: #60c1e2;
+	border:none;
+	border-right: 0.8px solid #60c1e2;
+	border-bottom: 0.8px solid #60c1e2;
+}
+.create-question-plus{
+	float: right;
+	width: 30px;
+	height: 80%;
+	color: #60c1e2;
+	border:none;
+}
+.create-question-input-generated{
+	float: left;
+	width: 300px;
+	height: 30px;
+	color: #60c1e2;
+	border:none;
+	padding: 2px;
+	background-color: #fbfbfb;
+	margin-bottom: 10px;
+	border-right: 0.8px solid #60c1e2;
+	border-bottom: 0.8px solid #60c1e2;
+}
+.create-question-btn{
+	width: 120px;
+	height: 40px;
+	float: right;
+	font-size: 15px;
+	font-weight: bold;
+	color: white;
+	background-color: #60c1e2;
+	border:1px solid #60c1e2;
+	border-radius: 8px 8px 8px 8px;
+}

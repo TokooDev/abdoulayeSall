@@ -127,3 +127,122 @@ h3 {
 	background: rgba(23,52,132,0.6);
 	transition: all 0.6s ease 0s;
 }
+/*Apps*/
+.container{
+  position: relative;
+  top: 10px;
+  width: 600px;
+  height: 780px;
+  background-color: #3cbbfa;
+  margin-left: 400px;
+}
+.title{
+  text-align: center;
+  margin-bottom: 20px;
+  width: 100%;
+  padding-top: 0.1px;
+}
+.title >h1{
+  font-size: 45px;
+  font-family: Tratello regular, 'Arial regular';
+  text-transform: uppercase;
+}
+.section{
+  position: relative;
+  width: 100%;
+  margin-left: 140px;
+}
+.label{
+  width: 100%;
+  float: left;
+  font-size: 25px;
+  color: white;
+  font-family: Tratello regular, 'Arial regular';
+}
+.icone{
+  padding: 0.5px;
+  float: left;
+  border-radius: 8px 0px 0px 8px;
+}
+.icone-taille{
+  background-color: blue;
+  height: 41px;
+}
+.icone-select{
+  height: 39px;
+}
+
+.icone-select-vert{
+  background-color: green;
+  color: green;
+}
+.icone-select-rouge{
+  background-color: red;
+}
+.icone-select-gris{
+  background-color: gray;
+}
+.icone-select-jaune{
+  background-color: yellow;
+  color: yellow;
+}
+.input{
+  border: 2px solid white;
+  border-radius: 0px 8px 8px 0px;
+  width: 285px; 
+  height: 40px;
+  float: left;
+}
+.select{
+  border: 2px solid white;
+  border-radius: 0px 8px 8px 0px;
+  width: 290px; 
+  height: 40px;
+  float: left;
+}
+.red-select{
+  color: red;
+}
+.green-select{
+  color: green;
+}
+.gray-select{
+  color: gray;
+}
+.btn-section{
+  margin-left: 150px;
+  float: left;
+  width: 100%;
+  margin-top: 20px;
+}
+.btn{
+  width: 120px;
+  height: 40px;
+  font-size: 12px;
+  border-radius: 8px 8px 8px 8px;
+}
+.btn-annuler{
+  border: 2px solid gray;
+  background-color: gray;
+}
+.btn-dessiner{
+  margin-left: 55px;
+  border: 2px solid yellow;
+  background-color: yellow;
+}
+.matrice{
+  position: absolute;
+  width: 400px;
+  top: 500px;
+  padding-left: 50px;
+}
+.table{
+  width: 80%;
+  height: 200px;
+}
+.style-bleu{
+  background-color: blue;
+}
+.style-noir{
+  background-color: black;
+}

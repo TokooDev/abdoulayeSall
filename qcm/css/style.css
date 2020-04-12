@@ -64,17 +64,17 @@ body{
 	height: 30px;
 	border: 1px solid #d2cece;
 	background-color: #f5f2f2;
-	border-radius: 5px 5px 5px 5px;
-	padding: 20px;
+	border-radius: 5px;
+	padding: 15px;
 	margin-bottom: 30px;
 }
 .input{
-	width: 90%;
+	width: 92%;
 	height: 25px;
 	background-color: #f5f2f2;
 	font-size: 18px;
 	border: none;
-	padding-left: 5px;
+	padding-left: 10px;
 }
 .btn-blue{
 	width: 150px;
@@ -89,6 +89,18 @@ body{
 	text-decoration: none;
 	color: #585252;
 	margin-left: 50px;
+}
+.erreurMessage{
+	width: 90%;
+	height: 30px;
+	background-color: #f1d4d4;
+	font-size: 15px;
+	color: #f39393;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 10px;
+	padding-left: 20px;
+	border-radius: 5px;
 }
 
 /*Page inscription*/
@@ -172,6 +184,39 @@ body{
 .admin-home-text{
 	margin-left: 350px;
 	width: 50%;
+	text-align: center;
+}
+.player-home-header{
+	position: relative;
+	display: flex;
+	color: white;
+	margin-top: 5px;
+	width: 98%;
+	padding-top: -2px;
+	margin-left: 15px;
+	height: 90px;
+	background-color: #60c1e2;
+	font-size: 12px;
+}
+.player-home-text{
+	margin-left: 350px;
+	width: 50%;
+	text-align: center;
+}
+.player-home-img-avatar{
+	position: absolute;
+	width: 60px;
+	height: 60px;
+	top: 3px;
+	left: 40px;
+	border-radius: 50% 50%;
+	border:2px solid white;
+}
+.player-home-profil-text{
+	position: absolute;
+	font-size: 25px;
+	top: 30px;
+	left: 25px;
 }
 .logout{
 	position: absolute;
@@ -183,6 +228,7 @@ body{
 	height: 30px;
 	padding-left: 15px;
 	padding-top: 4px;
+	border-radius: 3px;
 	background-color: #5fefde;
 }
 .btn-logout{
@@ -224,7 +270,12 @@ body{
 	border:1px solid #4c4c4c5c;
 }
 .img-avatar{
-	width: 98%;
+	position: absolute;
+	top: 7px;
+	left: 7px;
+	width: 90%;
+	height: 90%;
+	border-radius: 50% 50%;
 }
 .profil-text{
 	position: absolute;

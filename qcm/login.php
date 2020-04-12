@@ -2,27 +2,22 @@
 session_start();
 	if (isset($_POST['valider'])) {
 		if (!empty($_POST['login']) && !empty($_POST['mdp'])) {
-			$admins=file_get_contents('fichiers/admins.json');
-			$admins=json_decode($admins,true);
-			for ($i=0; $i <count($admins) ; $i++) { 
-				if ($admins[$i]['login']==$_POST['login'] && $admins[$i]['mdp']==$_POST['mdp']) {
-					$_SESSION['avatar']=$admins[$i]['avatar'];
-					$_SESSION['prenom']=$admins[$i]['prenom'];
-					$_SESSION['nom']=$admins[$i]['nom'];
-					header('Location: admin-home.php');
+			$users=file_get_contents('fichiers/users.json');
+			$users=json_decode($users,true);
+			for ($i=0; $i <count($users) ; $i++) { 
+				if ($users[$i]['login']==$_POST['login'] && $users[$i]['mdp']==$_POST['mdp']) {
+					$_SESSION['avatar']=$users[$i]['avatar'];
+					$_SESSION['prenom']=$users[$i]['prenom'];
+					$_SESSION['nom']=$users[$i]['nom'];
+					if ($users[$i]['type']=='admin') {
+						header('Location: admin-home.php');
+					}elseif ($users[$i]['type']=='player') {
+						header('Location: player-home.php');
+					}else{
+						$erreurMessage="Ce type de compte n'exite pas";
+					}
+					
 
-				}else{
-					$erreurMessage="Login ou mot de passe incorrect";
-				}
-			}
-			$players=file_get_contents('fichiers/players.json');
-			$players=json_decode($players,true);
-			for ($i=0; $i <count($players) ; $i++) { 
-				if ($players[$i]['login']==$_POST['login'] && $players[$i]['mdp']==$_POST['mdp']) {
-					$_SESSION['avatar']=$players[$i]['avatar'];
-					$_SESSION['prenom']=$players[$i]['prenom'];
-					$_SESSION['nom']=$players[$i]['nom'];
-					header('Location: player-home.php');
 				}else{
 					$erreurMessage="Login ou mot de passe incorrect";
 				}

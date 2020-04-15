@@ -45,7 +45,7 @@
 					 </p>
 				</div>
 				<h1 class="player-home-text">BIENVENUE SUR LA PLATEFORME DE JEU DE QUIZZ
-JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE</h1><span class="logout"><a class="btn-logout" href="login.php">Déconnexion</a></span>
+JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE</h1><span class="logout"><a class="btn-logout" href="index.php">Déconnexion</a></span>
 			</div>
 			<div class="admin-home-content">
 				

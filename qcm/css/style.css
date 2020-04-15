@@ -10,8 +10,8 @@ body{
 	width: 100%;
 	height: 80px;
 	display: flex;
-	background-color: black;
-	color: white;
+	background-color: #042425;
+	color: #f8fdfd;
 }
 .logo{
 	width: 40%;
@@ -40,10 +40,10 @@ body{
 }
 .login-header{
 	position: relative;
-	color: white;
+	color: #f8fdfd;
 	width: 97%;
 	height: 60px;
-	background-color: #60c1e2;
+	background-color: #51bfd0;
 	padding-top: 15px;
 	padding-left: 18px;
 	font-size: 25px;
@@ -77,13 +77,13 @@ body{
 	padding-left: 10px;
 }
 .btn-blue{
-	width: 150px;
-	height: 50px;
-	border: 1px solid #60c1e2;
-	background-color: #60c1e2;
+	width: 130px;
+	height: 45px;
+	border: 1px solid #51bfd0;
+	background-color: #51bfd0;
 	border-radius: 5px 5px 5px 5px;
-	font-size: 15px;
-	color: white;
+	font-size: 18px;
+	color: #f8fdfd;
 }
 .inscription-link{
 	text-decoration: none;
@@ -95,12 +95,17 @@ body{
 	height: 30px;
 	background-color: #f1d4d4;
 	font-size: 15px;
-	color: #f39393;
+	color: #e56946;
 	font-weight: bold;
 	text-align: center;
 	padding-top: 10px;
 	padding-left: 20px;
 	border-radius: 5px;
+}
+.input-validation{
+	color: #e56946;
+	margin-left: -15px;
+	margin-top: 22px;
 }
 
 /*Page inscription*/
@@ -149,19 +154,19 @@ body{
 	padding-top: 5px;
 	float: right;
 	margin-right: 125px;
-	border: 1px solid #60c1e2;
-	background-color: #60c1e2;
+	border: 1px solid #51bfd0;
+	background-color: #51bfd0;
 	border-radius: 5px 5px 5px 5px;
 }
 .btn-sign-up{
 	margin-top: 20px;
 	width: 200px;
 	height: 50px;
-	border: 1px solid #60c1e2;
-	background-color: #60c1e2;
+	border: 1px solid #51bfd0;
+	background-color: #51bfd0;
 	border-radius: 5px 5px 5px 5px;
 	font-size: 25px;
-	color: white;
+	color: #f8fdfd;
 }
 .right{
 	position: relative;
@@ -172,13 +177,13 @@ body{
 /*Interface admin*/
 .admin-home-header{
 	position: relative;
-	color: white;
+	color: #f8fdfd;
 	margin-top: 5px;
 	width: 98%;
 	padding-top: 10px;
 	margin-left: 15px;
 	height: 80px;
-	background-color: #60c1e2;
+	background-color: #51bfd0;
 	font-size: 12px;
 }
 .admin-home-text{
@@ -189,13 +194,13 @@ body{
 .player-home-header{
 	position: relative;
 	display: flex;
-	color: white;
+	color: #f8fdfd;
 	margin-top: 5px;
 	width: 98%;
 	padding-top: -2px;
 	margin-left: 15px;
 	height: 90px;
-	background-color: #60c1e2;
+	background-color: #51bfd0;
 	font-size: 12px;
 }
 .player-home-text{
@@ -210,7 +215,7 @@ body{
 	top: 3px;
 	left: 40px;
 	border-radius: 50% 50%;
-	border:2px solid white;
+	border:2px solid #f8fdfd;
 }
 .player-home-profil-text{
 	position: absolute;
@@ -229,11 +234,11 @@ body{
 	padding-left: 15px;
 	padding-top: 4px;
 	border-radius: 3px;
-	background-color: #5fefde;
+	background-color: #3addd6;
 }
 .btn-logout{
 	text-decoration: none;
-	color: white;
+	color: #f8fdfd;
 }
 .admin-home-content{
 	position: relative;
@@ -255,8 +260,8 @@ body{
 	position: relative;
 	width: 100%;
 	height: 150px;
-	border: 1px solid #60c1e2;
-	background-color: #60c1e2;
+	border: 1px solid #51bfd0;
+	background-color: #51bfd0;
 	border-radius: 8px 8px 0px 0px;
 }
 .profil-avatar{
@@ -281,15 +286,15 @@ body{
 	position: absolute;
 	top: 30px;
 	left: 200px;
-	color: white;
+	color: #f8fdfd;
 	font-size: 25px;
 }
 .side-navbar-content{
 	position: relative;
 	width: 100%;
 	height: 150px;
-	border: 1px solid white;
-	background-color: white;
+	border: 1px solid #f8fdfd;
+	background-color: #f8fdfd;
 }
 .list-item{
 	text-decoration: none;
@@ -324,7 +329,7 @@ body{
 	float: left;
 	top: 40px;
 	margin-left: 50px;
-	background-color: white;
+	background-color: #f8fdfd;
 	border-radius: 8px 8px 8px 8px;
 }
 /*Page de création d'un admin*/
@@ -368,7 +373,7 @@ body{
 }
 .table{
 	padding-left: 10px;
-	border:1px solid #60c1e2;
+	border:1px solid #51bfd0;
 	border-radius: 45px 45px 45px 45px;
 }
 thead{
@@ -399,12 +404,12 @@ td{
 	padding: 30px;
 	margin-left: 80px;
 	color: gray;
-	border:2px solid #60c1e2;
+	border:2px solid #51bfd0;
 	border-radius: 10% 10%;
 
 }
 .questions-creation-title{
-	color: #60c1e2;
+	color: #51bfd0;
 	margin-left: 80px;
 	font-size: 30px;
 	font-weight: bold;
@@ -427,8 +432,8 @@ td{
 	height: 100%;
 	background-color: #fbfbfb;
 	border:none;
-	border-right: 0.8px solid #60c1e2;
-	border-bottom: 0.8px solid #60c1e2; 
+	border-right: 0.8px solid #51bfd0;
+	border-bottom: 0.8px solid #51bfd0; 
 	border-radius: 3px 3px 3px 3px;
 }
 .create-question-input{
@@ -436,39 +441,39 @@ td{
 	margin-left: 200px;
 	width: 15%;
 	height: 80%;
-	color: #60c1e2;
+	color: #51bfd0;
 	border:none;
-	border-right: 0.8px solid #60c1e2;
-	border-bottom: 0.8px solid #60c1e2;
+	border-right: 0.8px solid #51bfd0;
+	border-bottom: 0.8px solid #51bfd0;
 }
 .create-question-select{
 	float: left;
 	margin-left: 220px;
 	width: 340px;
 	height: 50px;
-	color: #60c1e2;
+	color: #51bfd0;
 	border:none;
-	border-right: 0.8px solid #60c1e2;
-	border-bottom: 0.8px solid #60c1e2;
+	border-right: 0.8px solid #51bfd0;
+	border-bottom: 0.8px solid #51bfd0;
 }
 .create-question-plus{
 	float: right;
 	width: 30px;
 	height: 80%;
-	color: #60c1e2;
+	color: #51bfd0;
 	border:none;
 }
 .create-question-input-generated{
 	float: left;
 	width: 300px;
 	height: 30px;
-	color: #60c1e2;
+	color: #51bfd0;
 	border:none;
 	padding: 2px;
 	background-color: #fbfbfb;
 	margin-bottom: 10px;
-	border-right: 0.8px solid #60c1e2;
-	border-bottom: 0.8px solid #60c1e2;
+	border-right: 0.8px solid #51bfd0;
+	border-bottom: 0.8px solid #51bfd0;
 }
 .create-question-btn{
 	width: 120px;
@@ -476,8 +481,8 @@ td{
 	float: right;
 	font-size: 15px;
 	font-weight: bold;
-	color: white;
-	background-color: #60c1e2;
-	border:1px solid #60c1e2;
+	color: #f8fdfd;
+	background-color: #51bfd0;
+	border:1px solid #51bfd0;
 	border-radius: 8px 8px 8px 8px;
 }

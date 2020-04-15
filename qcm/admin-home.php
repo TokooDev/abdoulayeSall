@@ -20,7 +20,7 @@
 		</div>
 		<div class="content">
 			<div class="admin-home-header">
-				<h1 class="admin-home-text">CRÉER ET PARAMÉRTER VOS QUIZZ</h1><span class="logout"><a class="btn-logout" href="login.php">Déconnexion</a></span>
+				<h1 class="admin-home-text">CRÉER ET PARAMÉRTER VOS QUIZZ</h1><span class="logout"><a class="btn-logout" href="index.php">Déconnexion</a></span>
 			</div>
 			<div class="admin-home-content">
 				<div class="side-navbar">

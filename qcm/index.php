@@ -9,7 +9,7 @@ session_start();
 					$_SESSION['prenom']=$users[$i]['prenom'];
 					$_SESSION['nom']=$users[$i]['nom'];
 					if ($users[$i]['profil']=='admin') {
-						header('Location: admin-home.php');
+						header('Location: admin-home?page=questionsList');
 					}elseif ($users[$i]['profil']=='player') {
 						header('Location: player-home.php');
 					}else{

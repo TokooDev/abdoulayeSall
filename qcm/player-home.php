@@ -20,28 +20,19 @@
 		</div>
 		<div class="content">
 			<div class="player-home-header">
+				<?php
+					if (isset($_SESSION['prenom']) && isset($_SESSION['nom']) && isset($_SESSION['avatar'])){
+						$prenom=$_SESSION['prenom'];
+						$nom=$_SESSION['nom'];
+						$avatar=$_SESSION['avatar'];
+					}
+				?>
 				<div>
 					<div>
-						<?php
-							if (isset($_SESSION['avatar'])) {
-								$avatar=$_SESSION['avatar'];
-								?>
-
-								<img class="player-home-img-avatar" src="<?php echo $avatar; ?>">
-								<?php
-							}
-					 	?>
-						
+						<img class="player-home-img-avatar" src="<?php echo $avatar; ?>">
 					</div>
 					<p class="player-home-profil-text">
-						<?php
-							if (isset($_SESSION['prenom']) && isset($_SESSION['nom'])) {
-								$prenom=$_SESSION['prenom'];
-								$nom=$_SESSION['nom'];
-								echo $prenom." ".$nom;
-							}
-					 	?>
-					 	
+						<?php echo $prenom." ".$nom; ?>
 					 </p>
 				</div>
 				<h1 class="player-home-text">BIENVENUE SUR LA PLATEFORME DE JEU DE QUIZZ

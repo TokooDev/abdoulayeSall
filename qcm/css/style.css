@@ -239,6 +239,75 @@ body{
 .btn-logout{
 	text-decoration: none;
 	color: #f8fdfd;
+	text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+/*Logoutpopup*/
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 45%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+.popup .close {
+  position: absolute;
+  top: -5px;
+  right: 10px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #e56946;
+}
+.popup .content {
+  height: 35px;
+  overflow: auto;
+}
+.btn-yes-logout{
+	width: 50px;
+	height: 50px;
+	color: white;
+	font-size: 15px;
+	text-decoration: none;
+	background-color: #51bfd0;
+	border-radius: 3px 3px;
+	border:1px solid #51bfd0;
+	margin-left: 200px;
+	margin-right: 100px;
+}
+.btn-no-logout{
+	width: 50px;
+	height: 50px;
+	color: white;
+	font-size: 15px;
+	text-decoration: none;
+	background-color: #e56946;
+	border-radius: 3px 3px;
+	border:1px solid #e56946;
 }
 .admin-home-content{
 	position: relative;
@@ -314,9 +383,9 @@ body{
 	width: 90%;
 	height: 30px;
 	background-color: #e3e5e6;
-	padding-left: 45px;
+	padding-left: 43px;
 	padding-top: 8px;
-	border-left: 2px solid green;
+	border-left: 5px solid green;
 
 }
 .navbar-icon{
@@ -332,6 +401,22 @@ body{
 	background-color: #f8fdfd;
 	border-radius: 8px 8px 8px 8px;
 }
+.input-nbrQuestion{
+	width: 60px;
+	height: 30px;
+	border: 1px solid #818181;
+	opacity: 0.8;
+	border-radius: 3px 3px;
+}
+.btn-nbrQuestion{
+	width: 35px;
+	height: 34px;
+	background-color: #25759b;
+	border: 1px solid #25759b;
+	color: white;
+	font-size: 12px;
+	font-weight: bold;
+}
 /*Page de création d'un admin*/
 .create-admin{
 	width: 100%;
@@ -340,13 +425,13 @@ body{
 }
 .create-admin-title{
 	font-size: 12px;
-	margin-top: -25px;
+	margin-top: -22px;
 	color: #585252;
 }
 .create-admin-limiter{
 	width: 500px;
-	margin-left: -20px;
-	margin-bottom: -20px;
+	margin-left: -25px;
+	margin-bottom: 15px;
 }
 .create-admin-input{
 	width: 70%;
@@ -393,8 +478,8 @@ td{
 	border-radius: 10% 10%;
 }
 .questions-list-title{
-	font-size: 20px;
-	margin-left: 180px;
+	font-size: 25px;
+	margin-left: 120px;
 }
 /*creéation des questions*/
 .questions-creation{

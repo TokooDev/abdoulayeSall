@@ -310,14 +310,14 @@ body{
 	border:1px solid #e56946;
 }
 .admin-home-content{
-	position: relative;
+	position: absolute;
 	margin-left: 15px;
 	width: 98%;
 	height: 730px;
 	background-color: #e3e5e6;
 }
 .side-navbar{
-	position: relative;
+	position: absolute;
 	float: left;
 	left: 20px;
 	top: 80px;
@@ -393,11 +393,10 @@ body{
 	margin-right: 10px;
 }
 .content-to-load{
-	position: relative;
+	position: absolute;
 	width: 60%;
-	float: left;
+	right: 20px;
 	top: 40px;
-	margin-left: 50px;
 	background-color: #f8fdfd;
 	border-radius: 8px 8px 8px 8px;
 }

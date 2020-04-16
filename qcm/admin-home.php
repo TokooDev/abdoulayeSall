@@ -25,15 +25,7 @@
 				<h1 class="admin-home-text">CRÉER ET PARAMÉRTER VOS QUIZZ</h1><span class="logout"><a class="btn-logout" href="#logout-popup">Déconnexion</a></span>
 			</div>
 			<div class="admin-home-content">
-				<div id="logout-popup" class="overlay">
-					<div class="popup">
-						<h2>Êtes-vous sûr(e) de vouloir vous déconnecter ?</h2>
-						<a class="close" href="#">&times;</a>
-						<div class="content">
-							<a class="btn-yes-logout" href="index.php">OUI</a><a class="btn-no-logout" href="admin-home.php?page=<?php echo($_GET['page']); ?>">NON</a>
-						</div>
-					</div>
-				</div>
+				
 				<div class="side-navbar">
 					<div class="side-navbar-header">
 						<?php
@@ -115,7 +107,7 @@
 								}else{
 									echo 'class="list-item"';
 								} 
-								?>>Créer Admin
+								?>>Créer Question
 								<span class="navbar-icon">
 									<img <?php 
 										if ($_GET['page']=='createQuestion'){
@@ -136,6 +128,15 @@
 						    include($_GET['page'].'.php');
 						}
 					?>
+				</div>
+			</div>
+		</div>
+		<div id="logout-popup" class="overlay">
+			<div class="popup">
+				<h2>Êtes-vous sûr(e) de vouloir vous déconnecter ?</h2>
+				<a class="close" href="#">&times;</a>
+				<div class="content">
+					<a class="btn-yes-logout" href="index.php">OUI</a><a class="btn-no-logout" href="admin-home.php?page=<?php echo($_GET['page']); ?>">NON</a>
 				</div>
 			</div>
 		</div>

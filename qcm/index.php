@@ -45,7 +45,7 @@ session_start();
 		<div class="content">
 			<div class="login">
 				<div class="login-header">
-				Formulaire de connexion<span class="btn-leave">X</span>
+				Formulaire de connexion<span class="btn-leave">&times;</span>
 				</div>
 				<div class="login-content">
 					<form action="" method="POST" id="form-coonexion">

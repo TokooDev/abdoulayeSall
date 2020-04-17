@@ -48,7 +48,7 @@ session_start();
 				Formulaire de connexion<span class="btn-leave">&times;</span>
 				</div>
 				<div class="login-content">
-					<form action="" method="POST" id="form-coonexion">
+					<form action="" method="POST" id="form-connexion">
 						<div class="section">
 							<input class="input" error="error-1" placeholder="Login" value="<?php if(isset($_POST['login'])){ echo $_POST['login']; } ?>" type="text" name="login" id="login"> <label for="login"><img src="images/Icônes/ic-login.png"></label>
 							<p class='input-validation' id="error-1"></p>
@@ -68,7 +68,7 @@ session_start();
 			</div>
 		</div>
 		<script type="text/javascript">
-			document.getElementById("form-coonexion").addEventListener("submit",function(e){
+			document.getElementById("form-connexion").addEventListener("submit",function(e){
 				const inputs= document.getElementsByTagName("input");
 				var error=false;
 				for(input of inputs){

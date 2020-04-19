@@ -8,6 +8,7 @@ session_start();
 					$_SESSION['avatar']=$users[$i]['avatar'];
 					$_SESSION['prenom']=$users[$i]['prenom'];
 					$_SESSION['nom']=$users[$i]['nom'];
+					$_SESSION['login']=$users[$i]['login'];
 					if ($users[$i]['profil']=='admin') {
 						header('Location: admin-home?page=questionsList');
 					}elseif ($users[$i]['profil']=='player') {

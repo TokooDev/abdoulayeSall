@@ -5,9 +5,6 @@ body{
 	padding: 0px;
 	font-family: open sans;
 }
-input:hover{
-	border: 2px solid #51bfd0; 
-}
 /*Page de connexion*/
 .header{
 	width: 100%;
@@ -226,6 +223,28 @@ input:hover{
 	top: 50px;
 	left: 20px;
 }
+.player-home-content{
+	position: absolute;
+	left: 25px;
+	top: 10px;
+	padding: 20px;
+	border-radius: 10px 10px;
+	width: 93%;
+	height: 600px;
+	background-color: white;
+}
+.game-section{
+	position: absolute;
+	width: 55%;
+	padding: 20px;
+	border-radius: 15px 15px;
+	border:2px solid #51bfd0;
+}
+.marks-section{
+	position: absolute;
+	right: 80px;
+	width: 30%;
+}
 .logout{
 	position: absolute;
 	top: 30px;
@@ -312,6 +331,16 @@ input:hover{
 	border-radius: 3px 3px;
 	border:1px solid #e56946;
 }
+.bestScore{
+	padding-left: 100px;
+	align-content: center;
+}
+.point{
+	font-weight: bold;
+	font-size: 25px;
+	padding-left: 150px;
+	color: green;
+}
 .admin-home-content{
 	position: absolute;
 	margin-left: 15px;
@@ -357,6 +386,11 @@ input:hover{
 .signup-avatar{
 	width: 70%;
 	height: 70%;
+	border-radius: 50% 50%;
+}
+.img-profil-player{
+	width: 35px;
+	height: 35px;
 	border-radius: 50% 50%;
 }
 .profil-text{
@@ -456,7 +490,8 @@ input:hover{
 /*Page liste des joueurs*/
 .players-list{
 	width: 100%;
-	margin-left: 150px;
+	height: 580px;
+	margin-left: 120px;
 	color: gray;
 }
 .players-list-title{
@@ -465,10 +500,17 @@ input:hover{
 }
 .table{
 	padding-left: 10px;
-	border:1px solid #51bfd0;
+	border:1.5px solid #51bfd0;
+	border-radius: 45px 45px 45px 45px;
+}
+.top-score-table{
+	margin-left: -100px;
+	padding-left: 10px;
+	border:1.5px solid #51bfd0;
 	border-radius: 45px 45px 45px 45px;
 }
 thead{
+	font-size: 25px;
 	font-weight: bolder;
 }
 td{
@@ -480,29 +522,99 @@ td{
 /*Liste des questions*/
 .questions-list{
 	width: 100%;
+	height: 600px;
 	margin-left: 100px;
 	color: gray;
 	border-radius: 10% 10%;
 }
+.questions-list-header{
+	position: relative;
+	width: 50%;
+	height: 50px;
+	display: flex;
+}
 .questions-list-title{
+	position: relative;
+	float: left;
+	width: 60%;
+	left: 50px;
 	font-size: 25px;
-	margin-left: 120px;
+}
+.questions-list-form{
+	position: relative;
+	float: left;
+	top: 20px;
+	width: 40%;
+	font-size: 25px;
+}
+.questions-list-content{
+	position: absolute;
+	float: left;
+	width: 100%;
+	height: 400px;
+	top: 80px;
+	padding: 20px 30px;
+	margin-left: 10px;
+	color: gray;
+	border:2px solid #cab4a4;
+	border-radius: 10% 10%;
+
+}
+.btn_suivant{
+	width: 80px;
+	height: 30px;
+	position: absolute;
+	top: 550px;
+	color: white;
+	right: -85px;
+	background-color: #51bfd0;
+	border:1px solid #51bfd0;
+	border-radius: 3px 3px;
+}
+.btn_precendent{
+	width: 80px;
+	height: 30px;
+	position: absolute;
+	top: 550px;
+	color: white;
+	left: 150px;
+	background-color: #51bfd0;
+	border:1px solid #51bfd0;
+	border-radius: 3px 3px;
+}
+.question{
+	margin-top: 20px;
+	font-size: 20px;
+	color: #947265;
+	font-weight: bold;
+}
+.reponse{
+	font-size: 18px;
+	color: black;
+	font-weight: bold;
+}
+.input-reponse{
+	width: 300px;
+	height: 30px;
+	margin-top: 5px;
+	border:1px solid #cab4a4 ;
+	border-radius: 4px 4px;
 }
 /*creéation des questions*/
 .questions-creation{
 	position: relative;
 	width: 75%;
-	height: 530px;
+	height: 600px;
 	padding: 30px;
 	margin-left: 80px;
 	color: gray;
-	border:2px solid #51bfd0;
+	border:1px solid #51bfd0;
 	border-radius: 10% 10%;
 
 }
 .questions-creation-title{
 	color: #51bfd0;
-	margin-left: 80px;
+	margin-left: 150px;
 	font-size: 30px;
 	font-weight: bold;
 }

@@ -1,5 +1,11 @@
-<?php session_start();
-
+<?php 
+session_start();
+	if(empty($_SESSION['login'])) 
+	{
+	  // Si nulle, on redirige vers la page de connexion
+	  header('Location: index.php');
+	  exit();
+	}
 ?>
 <!DOCTYPE html>
 <html>

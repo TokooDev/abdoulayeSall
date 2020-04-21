@@ -240,10 +240,193 @@ body{
 	border-radius: 15px 15px;
 	border:2px solid #51bfd0;
 }
+.questionHeader{
+	position: relative;
+	width: 100%;
+	margin-bottom: 20px;
+	padding-top: 3px;
+	height: 140px;
+	background-color: #f5efef;
+	border-bottom: 1px solid #51bfd0;
+	border-right: 1px solid #51bfd0;
+}
+.questionTitle{
+	text-align: center;
+	text-decoration: underline;
+	font-weight: bold;
+	font-size: 35px;
+}
+.gameQuestion{
+	font-size: 20px;
+	text-align: center;
+}
+.gameScore{
+	position: absolute;
+	right: 20px;
+	margin-bottom: 20px;
+	padding-top: 5px;
+	font-size: 18px;
+	text-align: center;
+	width: 80px;
+	height: 30px;
+	background-color: #f5efef;
+	border-bottom: 1px solid #51bfd0;
+	border-right: 1px solid #51bfd0;
+
+}
+.checkbox{
+	position: relative;
+	width: 30px;
+	height: 30px;
+	top: 8px;
+	background-color: white;
+	border: 2px solid #51bfd0;
+	color: #51bfd0;
+}
+.gameReponses{
+	position: relative;
+	width: 100%;
+	align-content: center;
+	margin: 50px;
+	height: 150px;
+	font-size: 25px;
+	font-weight: bold;
+}
+.btnSuivant{
+	width: 120px;
+	height: 50px;
+	position: absolute;
+	top: 150px;
+	color: white;
+	right: 50px;
+	font-size: 28px;
+	background-color: #51bfd0;
+	border:1px solid #51bfd0;
+	border-radius: 3px 3px;
+}
+.btnOver{
+	width: 150px;
+	height: 50px;
+	position: absolute;
+	top: 150px;
+	color: white;
+	right: 50px;
+	font-size: 28px;
+	background-color: #178a40;
+	border:1px solid #178a40;
+	border-radius: 3px 3px;
+}
+.btnPrecendent{
+	width: 150px;
+	height: 50px;
+	position: absolute;
+	top: 150px;
+	color: white;
+	left: -50px;
+	font-size: 25px;
+	background-color: #6f7273;
+	border:1px solid #6f7273;
+	border-radius: 3px 3px;
+}
+.btnLeave{
+	width: 150px;
+	height: 50px;
+	position: absolute;
+	top: 150px;
+	color: white;
+	left: 50px;
+	font-size: 25px;
+	background-color: #dc6e70;
+	border:1px solid #dc6e70;
+	border-radius: 3px 3px;
+}
 .marks-section{
 	position: absolute;
-	right: 80px;
-	width: 30%;
+	right: 20px;
+	width: 35%;
+	box-shadow: 4px 4px 10px 4px rgba(0, 0, 0, 0.20), 2px 6px 10px 0 rgba(0, 0, 0, 0.10);
+}
+
+.form-wizard-wrapper {
+width: 100%;
+margin: 0 auto;
+overflow: hidden;
+position: relative;
+z-index: 1;
+}
+.form-wizard-wrapper .form-wizardmove-active {
+position: absolute;
+width: 180px;
+height: 50px;
+left: 0;
+border-radius: 2px;
+background-color: #f5efef;
+}
+.form-wizard-wrapper ul {
+background-color: white;
+width: 100%;
+height: 50px;
+z-index: 1;
+border-radius: 4px 4px 0px 0px;
+display: flex;
+justify-content: center;
+position: relative;
+margin: 0;
+padding: 0;
+}
+.form-wizard-wrapper ul li {
+list-style-type: none;
+width: 100%;
+text-align: center;
+display: flex;
+}
+.form-wizard-wrapper ul li a {
+display: block;
+padding: 10px;
+width: 100%;
+color: #51bfd0;
+text-decoration: none;
+}
+.form-wizard-wrapper ul li a span {
+position: relative;
+z-index: 1;
+color: #51bfd0;
+}
+.form-wizard-wrapper .form-wizard-content {
+background-color: #ffffff;
+padding: 10px;
+color: #777777;
+-webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+transition: all 0.5s cubic-bezier(0.29, 1.42, 0.79, 1) 0s;
+transform: translate3d(100%, 0px, 0px);
+position: absolute;
+left: 0;
+right: 0;
+bottom: 0;
+top: 0;
+}
+.form-wizard-wrapper .form-wizard-content.show {
+transform: translate3d(0px, 0px, 0px);
+}
+.form-wizard-content-wrapper {
+height: 400px;
+position: relative;
+background-color: #fff;
+}
+.topBestScore{
+	margin-left: 30px;
+}
+.bestScore-data{
+	text-align: center;
+	width: 110px;
+	padding-top: 20px;
+	font-size: 20px;
+	color: black;
+}
+.bestScore-title{
+	position: relative;
+	text-align: center;
 }
 .logout{
 	position: absolute;
@@ -332,8 +515,7 @@ body{
 	border:1px solid #e56946;
 }
 .bestScore{
-	padding-left: 100px;
-	align-content: center;
+	margin-left: 30px;
 }
 .point{
 	font-weight: bold;
@@ -346,7 +528,7 @@ body{
 	margin-left: 15px;
 	width: 98%;
 	height: 730px;
-	background-color: #e3e5e6;
+	background-color: #f5efef;
 }
 .side-navbar{
 	position: absolute;
@@ -424,7 +606,7 @@ body{
 	text-decoration: none;
 	width: 90%;
 	height: 30px;
-	background-color: #e3e5e6;
+	background-color: #f5efef;
 	padding-left: 43px;
 	padding-top: 8px;
 	border-left: 5px solid green;
@@ -499,7 +681,7 @@ body{
 	margin-left: 120px;
 }
 .table{
-	padding-left: 10px;
+	width: 100%;
 	border:1.5px solid #51bfd0;
 	border-radius: 45px 45px 45px 45px;
 }
@@ -513,7 +695,7 @@ thead{
 	font-size: 25px;
 	font-weight: bolder;
 }
-td{
+.players-list td{
 	text-align: center;
 	width: 200px;
 	height: 50px;

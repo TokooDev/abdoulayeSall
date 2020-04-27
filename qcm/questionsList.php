@@ -5,75 +5,103 @@
 				<h3 class="questions-list-title">
 				Nbre de question/Jeu
 				</h3>
-				<form method="post" action="" class="questions-list-form" >
-					<input class="input-nbrQuestion" type="text" name="nbrQuestion" value="<?php if(isset($_POST['nbrQuestion']))
-				{echo $_POST['nbrQuestion'] ;} ?>">
-				<input class="btn-nbrQuestion" type="submit" name="btn-nbrQuestion" value="OK">
-				</form>
-			</div>
-			<div class="questions-list-content">
 				<?php
-		        if(isset($_POST['btn-nbrQuestion'])){
-		            if(empty($_POST['nbrQuestion'])){
+			        $nbreQuestion = file_get_contents('fichiers/nbreQuestion.json');
+			        $nbreQuestion = json_decode($nbreQuestion);
+			    ?>
+				<form method="post" action="" class="questions-list-form" >
+					<input class="input-nbrQuestion" type="text" name="nbreQuestion" value="<?php if(isset($nbreQuestion[0]))
+        {echo $nbreQuestion[0] ;} ?>">
+				<input class="btn-nbrQuestion" type="submit" name="btn-nbreQuestion" value="OK">
+				</form>
+				<p>
+					<?php
+		        if(isset($_POST['btn-nbreQuestion'])){
+		            if(empty($_POST['nbreQuestion'])){
 		                echo '<p class="input-validation">Vueillez donner le nombre de questions</p>';
 		            }
 		            else{
-		                $nbrQuestion=$_POST['nbrQuestion'];
+		            	$nbreQuestion=array();
+		            	$nbreQuestion[]=$_POST['nbreQuestion'];
+		            	$nbreQuestion[]=$nbreQuestion;
+						$nbreQuestion=json_encode($nbreQuestion);
+						file_put_contents('fichiers/nbreQuestion.json', $nbreQuestion);
 		            }
 		        }
+		        ?>
+				</p>
+			</div>
+			<div class="questions-list-content">
+				<?php
 			        $questions = file_get_contents('fichiers/questions.json');
 			        $questions = json_decode($questions);
 			        if(isset($_GET['pages'])){
 			            $_GET['pages'] = intval($_GET['pages']);
-			            $currentPage= $_GET['pages'];
+			            $pageActuelle= $_GET['pages'];
 			        }
 			        else{
-			            $currentPage = 1;
+			            $pageActuelle = 1;
 			        }
 			        $count = count($questions);
-			        $perPage = 3;
-			        $pages = ceil($count/$perPage);
-			        $offeset = $perPage * ($currentPage - 1);
-			        $questions = array_slice($questions,$offeset, $perPage);
-
+			        $parPage = 3;
+			        $pages = ceil($count/$parPage);
+			        $pas = $parPage * ($pageActuelle - 1);
+			        $questions = array_slice($questions,$pas, $parPage);
 			        for ($i=0; $i<count($questions); $i++){
-			            $x = $i+1;
+			            $n = $i+1;
 			                if ($questions[$i]){
-			                    $affich_question = $x.'.'.$questions[$i]->{'questions'} ;
-			                    echo "<span class='question'>$affich_question</span><br/>";
+			                    $question = $n.'.'.$questions[$i]->{'questions'} ;
+			                    ?>
+			                    <div class='question'><?php echo $question; ?></div>
+			                    <?php
 			                    if (is_object($questions[$i]->{'reponse'})) {
 			                        if ($questions[$i]->{'type'}=="multiple") {
 			                        	for ($j=0; $j<sizeof($questions[$i]->{'reponse'}->{'bonne_reponse'});$j++){
-			                            echo '<input checked type="checkbox"/><span class="reponse">'.$questions[$i]->{'reponse'}->{'bonne_reponse'}[$j].'</span><br/>';
-			                        }
+			                        		?>
+			                        		<input checked type="checkbox"/>
+			                        		<span class="reponse"><?php echo $questions[$i]->{'reponse'}->{'bonne_reponse'}[$j]; ?></span><br>
+			                        		<?php
+			                       			 }
 			                        for ($k=0;$k<count($questions[$i]->{'reponse'}->{'fausse_reponse'});$k++){
-			                            echo '<input type="checkbox"/><span class="reponse">'.$questions[$i]->{'reponse'}->{'fausse_reponse'}[$k].'</span><br/>';
+			                        	?>
+			                        		<input type="checkbox"/>
+			                        		<span class="reponse"><?php echo $questions[$i]->{'reponse'}->{'fausse_reponse'}[$k]; ?></span><br>
+			                        		<?php
 			                        }
 			                        }elseif ($questions[$i]->{'type'}=="unique") {
 			                        	for ($j=0; $j<sizeof($questions[$i]->{'reponse'}->{'bonne_reponse'});$j++){
-			                            echo '<input checked type="radio"/><span class="reponse">'.$questions[$i]->{'reponse'}->{'bonne_reponse'}[$j].'</span><br/>';
+			                        		?>
+			                        		<input checked type="radio"/>
+			                        		<span class="reponse"><?php echo $questions[$i]->{'reponse'}->{'bonne_reponse'}[$j]; ?></span><br>
+			                        		<?php
 			                        }
 			                        for ($k=0;$k<count($questions[$i]->{'reponse'}->{'fausse_reponse'});$k++){
-			                            echo '<input type="radio"/><span class="reponse">'.$questions[$i]->{'reponse'}->{'fausse_reponse'}[$k].'</span><br/>';
+			                        	?>
+			                        		<input type="radio"/>
+			                        		<span class="reponse"><?php echo $questions[$i]->{'reponse'}->{'fausse_reponse'}[$k]; ?></span><br>
+			                        		<?php
 			                        }
 			                        }
 			                    }
 			                    else{
-			                        echo '<span class="reponse"><input class="input-reponse" name="reponse'.$i.'" "/></span><br/>';
+			                        echo "<div class='reponse'><input class='input-reponse' value='".$questions[$i]->{'reponse'}."'/></div><br/>";
 			                    }
 			                }
 			        }
-			        echo '</div><div>';
-			        $precedent = $currentPage-1;
-			        $suivant = $currentPage + 1;
-			        if($currentPage>1){
+			        ?>
+			        </div>
+			        <div>
+			        <?php
+			        $precedent = $pageActuelle-1;
+			        $suivant = $pageActuelle + 1;
+			        if($pageActuelle>1){
 			            $link ='admin-home.php?page=questionsList';
-			            if($currentPage>2){
+			            if($pageActuelle>2){
 			                $link .= '&pages='.$precedent;
 			            }
 			            echo ' <a href="'.$link.'"><button class="btn_precendent">&laquo;Précédent</button></a> ';
 			        }
-			        if($currentPage<$pages){
+			        if($pageActuelle<$pages){
 			            echo ' <a href="admin-home.php?page=questionsList&pages='.$suivant.'"><button class="btn_suivant">Suivant &raquo;</button></a> ';
 			        }
 				?>

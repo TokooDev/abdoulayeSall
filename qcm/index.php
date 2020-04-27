@@ -52,11 +52,11 @@ session_start();
 					<form action="" method="POST" id="form-connexion">
 						<div class="section">
 							<input class="input" error="error-1" placeholder="Login" value="<?php if(isset($_POST['login'])){ echo $_POST['login']; } ?>" type="text" name="login" id="login"> <label for="login"><img src="images/Icônes/ic-login.png"></label>
-							<p class='input-validation' id="error-1"></p>
+							<p class='login-input-validation' id="error-1"></p>
 						</div>
 						<div class="section">
 							<input class="input" error="error-2" placeholder="Password" type="password" name="mdp" id="password"> <label for="password"><img src="images/Icônes/icone-password.png" width="15"></label>
-							<p class='input-validation' id="error-2"></p>
+							<p class='login-input-validation' id="error-2"></p>
 						</div>
 						<?php if (isset($erreurMessage)) {
 							echo "<p class='erreurMessage'>".$erreurMessage."</p>";

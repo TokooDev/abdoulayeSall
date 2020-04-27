@@ -104,8 +104,16 @@ body{
 }
 .input-validation{
 	color: #e56946;
+	margin-top: -35px;
+}
+.login-input-validation{
+	color: #e56946;
 	margin-left: -15px;
 	margin-top: 22px;
+}
+.create-admin-validation{
+	color: #e56946;
+	margin-top: -15px;
 }
 
 /*Page inscription*/
@@ -153,7 +161,7 @@ body{
 	height: 30px;
 	padding-top: 5px;
 	float: right;
-	margin-right: 125px;
+	margin-right: 160px;
 	border: 1px solid #51bfd0;
 	background-color: #51bfd0;
 	border-radius: 5px 5px 5px 5px;
@@ -279,7 +287,7 @@ body{
 	width: 30px;
 	height: 30px;
 	top: 8px;
-	background-color: white;
+	background-color: red;
 	border: 2px solid #51bfd0;
 	color: #51bfd0;
 }
@@ -527,7 +535,7 @@ background-color: #fff;
 	position: absolute;
 	margin-left: 15px;
 	width: 98%;
-	height: 730px;
+	height: 750px;
 	background-color: #f5efef;
 }
 .side-navbar{
@@ -536,7 +544,8 @@ background-color: #fff;
 	left: 20px;
 	top: 80px;
 	width: 35%;
-
+	border-radius: 8px 8px 0px 0px;
+	box-shadow: 3px 3px 6px 3px rgba(0, 0, 0, 0.20), 3px 3px 6px 3px rgba(0, 0, 0, 0.20);
 
 }
 .side-navbar-header{
@@ -620,9 +629,10 @@ background-color: #fff;
 	position: absolute;
 	width: 60%;
 	right: 20px;
-	top: 40px;
+	top: 20px;
 	background-color: #f8fdfd;
 	border-radius: 8px 8px 8px 8px;
+	box-shadow: 3px 3px 6px 3px rgba(0, 0, 0, 0.20), 3px 3px 6px 3px rgba(0, 0, 0, 0.10);
 }
 .input-nbrQuestion{
 	width: 60px;
@@ -643,7 +653,7 @@ background-color: #fff;
 /*Page de création d'un admin*/
 .create-admin{
 	width: 100%;
-	height: 680px;
+	height: 690px;
 	padding-left: 25px;
 }
 .create-admin-title{
@@ -786,8 +796,11 @@ thead{
 .questions-creation{
 	position: relative;
 	width: 75%;
-	height: 600px;
-	padding: 30px;
+	height: 100%;
+	padding-top: 30px;
+	padding-right: 30px;
+	padding-left: 30px;
+	padding-bottom: 20px;
 	margin-left: 80px;
 	color: gray;
 	border:1px solid #51bfd0;
@@ -804,7 +817,13 @@ thead{
 	position: relative;
 	width: 100%;
 	height: 50px;
-	margin-bottom: 30px;
+	margin-bottom: 40px;
+}
+.create-question-section{
+	position: relative;
+	width: 100%;
+	height: 50px;
+	margin-bottom: 40px;
 }
 .create-question-label{
 	position: absolute;
@@ -832,6 +851,16 @@ thead{
 	border-right: 0.8px solid #51bfd0;
 	border-bottom: 0.8px solid #51bfd0;
 }
+.create-question-input-question{
+	float: left;
+	margin-left: 200px;
+	width: 65%;
+	height: 80%;
+	color: #51bfd0;
+	border:none;
+	border-right: 0.8px solid #51bfd0;
+	border-bottom: 0.8px solid #51bfd0;
+}
 .create-question-select{
 	float: left;
 	margin-left: 220px;
@@ -849,22 +878,50 @@ thead{
 	color: #51bfd0;
 	border:none;
 }
-.create-question-input-generated{
+.reponse-label{
+	position: absolute;
 	float: left;
-	width: 300px;
-	height: 30px;
+	width: 35%;
+	height: 100%;
+	font-size: 25px;
+}
+.create-question-input-generated{
+	position: relative;
+	float: left;
+	width: 340px;
+	height: 40px;
 	color: #51bfd0;
+	margin-left: 180px;
 	border:none;
-	padding: 2px;
-	background-color: #fbfbfb;
-	margin-bottom: 10px;
+	background-color: white;
 	border-right: 0.8px solid #51bfd0;
 	border-bottom: 0.8px solid #51bfd0;
 }
+.reponse-icones{
+	width: 12%;
+	padding-top: 2px;
+	height: 30px;
+	float: right;
+	display: flex;
+}
+.img-delete{
+	width: 35px;
+	height: 35px;
+}
+.multipleCheckbox{
+	width: 35px;
+	height: 35px;
+}
+.multipleRadio{
+	width: 35px;
+	height: 35px;
+}
 .create-question-btn{
+	position: absolute;
 	width: 120px;
 	height: 40px;
-	float: right;
+	right: 10px;
+	top: 60px;
 	font-size: 15px;
 	font-weight: bold;
 	color: #f8fdfd;

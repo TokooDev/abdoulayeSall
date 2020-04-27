@@ -56,21 +56,22 @@
 			<p><input class="create-admin-input" hidden="true" value="admin" type="text" name="profil"></p>
 			<p><label class="create-admin-label" for="prenom">Prénom</label></p>
 			<p><input class="create-admin-input" value="<?php if(isset($_POST['prenom'])){ echo $_POST['prenom']; } ?>" error="error-1" placeholder="Tapez le prénom" type="text" id="prenom" name="prenom"></p>
-			<p class='input-validation' id="error-1"></p>
+			<p class='create-admin-validation' id="error-1"></p>
 			<p><label class="create-admin-label" for="nom">Nom</label></p>
 			<p><input class="create-admin-input" value="<?php if(isset($_POST['nom'])){ echo $_POST['nom']; } ?>" error="error-2" placeholder="Tapez le nom" type="text" id="nom" name="nom"></p>
-			<p class='input-validation' id="error-2"></p>
+			<p class='create-admin-validation' id="error-2"></p>
 			<p><label class="create-admin-label" for="login">Login</label></p>
 			<p><input class="create-admin-input" value="<?php if(isset($_POST['login'])){ echo $_POST['login']; } ?>" error="error-3" placeholder="Tapez le login" type="text" id="login" name="login"></p>
-			<p class='input-validation' id="error-3"></p>
+			<p class='create-admin-validation' id="error-3"></p>
 			<p><label class="create-admin-label" for="mdp">Mot de passe</label></p>
-			<p><input class="create-admin-input" error="error-4" placeholder="Tapez le mot de passe" type="password" id="mdp" name="mdp"></p><p class='input-validation' id="error-4"></p>
+			<p><input class="create-admin-input" error="error-4" placeholder="Tapez le mot de passe" type="password" id="mdp" name="mdp"></p><p class='create-admin-validation' id="error-4"></p>
 			<p><label class="create-admin-label" for="mdp2">Confirmation du mot de passe</label></p>
-			<p><input class="create-admin-input" error="error-5" placeholder="Confirmez le mot de passe" type="password" id="mdp2" name="mdp2"></p><p class='input-validation' id="error-5"></p>
-			<p><label  class="create-admin-label" for="avatar">Avatar</label><input class="avatar-input" error="error-6"  type="file" id="avatar" onchange="affichageAvatar();" name="avatar"></p>
-			<p class='input-validation' id="error-6"></p>
+			<p><input class="create-admin-input" error="error-5" placeholder="Confirmez le mot de passe" type="password" id="mdp2" name="mdp2"></p><p class='create-admin-validation' id="error-5"></p>
+			<p><label  class="create-admin-label" for="avatar">Avatar</label><input class="avatar-input" error="error-6"  type="file" id="avatar" onchange="affichageAvatar();" name="avatar"></p><br>
+			<p class='create-admin-validation' id="error-6"></p>
 			<input class="btn-sign-up" type="submit" name="valider" value="Créer compte">
 			</form>
+			<br>
 		</div>
 		<div class="right" id="avatarSection">
 			

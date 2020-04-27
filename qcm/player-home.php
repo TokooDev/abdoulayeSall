@@ -56,287 +56,315 @@ session_start();
 						<?php
 						$users = file_get_contents('fichiers/users.json');
 						$users = json_decode($users);
-                $questions = file_get_contents('fichiers/questions.json');
-                $questions = json_decode($questions);
-                for ($i=0; $i<count($questions); $i++){
-                    if ($questions[$i]){
-                        $reponse = '';
-                        $_SESSION['score'] = $questions[$i]->{'score'};
-                        if (is_object($questions[$i]->{'reponse'})) {
-                            if(sizeof($questions[$i]->{'reponse'}->{'bonne_reponse'}) == 1){
-                                if(isset($_POST['boutton_suivant']) || isset($_POST['button_terminer'])){
-                                    if(isset($_POST["reponse_bonne0"])){
-                                        if(isset($questions[$i]->{'reponse'}->{'bonne_reponse'}[0])){
-                                            if ($questions[$i]->{'reponse'}->{'bonne_reponse'}[0] == $_POST["reponse_bonne0"]){
-                                                $reponse = 1;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            if(sizeof($questions[$i]->{'reponse'}->{'bonne_reponse'}) > 1){
-                                for ($j=0; $j<sizeof($questions[$i]->{'reponse'}->{'bonne_reponse'});$j++){
+		                $questions = file_get_contents('fichiers/questions.json');
+		                $questions = json_decode($questions);
+		                shuffle($questions);
+		                for ($i=0; $i<count($questions); $i++){
+		                    if ($questions[$i]){
+		                        $reponse = '';
+		                        $_SESSION['score'] = $questions[$i]->{'score'};
+		                        if (is_object($questions[$i]->{'reponse'})) {
+		                            if(sizeof($questions[$i]->{'reponse'}->{'bonne_reponse'}) == 1){
+		                                if(isset($_POST['btnNext']) || isset($_POST['btnLeave'])){
+		                                    if(isset($_POST["reponse0"])){
+		                                        if(isset($questions[$i]->{'reponse'}->{'bonne_reponse'}[0])){
+		                                            if ($questions[$i]->{'reponse'}->{'bonne_reponse'}[0] == $_POST["reponse0"]){
+		                                                $reponse = 1;
+		                                            }
+		                                        }
+		                                    }
+		                                    for ($k=0;$k<count($questions[$i]->{'reponse'}->{'fausse_reponse'});$k++){
+		                                        if(isset($_POST['btnNext']) || isset($_POST['btnLeave'])){
+		                                            if(isset($_POST["reponse0"])){
+		                                                if(isset($questions[$i]->{'reponse'}->{'fausse_reponse'}[$k])){
+		                                                    if ($questions[$i]->{'reponse'}->{'fausse_reponse'}[$k] == $_POST["reponse0"]){
+		                                                        $reponse = 2;
+		                                                    }
+		                                                }
+		                                            }
+		                                        }
+		                                    }
+		                                }
+		                            }
+		                            if(sizeof($questions[$i]->{'reponse'}->{'bonne_reponse'}) > 1){
+		                                for ($j=0; $j<sizeof($questions[$i]->{'reponse'}->{'bonne_reponse'});$j++){
 
-                                    if(isset($_POST['boutton_suivant']) || isset($_POST['button_terminer'])){
-                                        if(isset($_POST["reponse_bonne$j"])){
-                                            if(isset($questions[$i]->{'reponse'}->{'bonne_reponse'}[$j])){
-                                                if ($questions[$i]->{'reponse'}->{'bonne_reponse'}[$j] == $_POST["reponse_bonne$j"]){
-                                                    $reponse = 1;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            for ($k=0;$k<count($questions[$i]->{'reponse'}->{'fausse_reponse'});$k++){
-                                if(isset($_POST['boutton_suivant']) || isset($_POST['button_terminer'])){
-                                    if(isset($_POST["reponse$k"])){
-                                        if(isset($questions[$i]->{'reponse'}->{'fausse_reponse'}[$k])){
-                                            if ($questions[$i]->{'reponse'}->{'fausse_reponse'}[$k] == $_POST["reponse$k"]){
-                                                $reponse = 2;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            if($reponse == 1){
-                                $_SESSION['rep']['score'] = $_SESSION['rep']['score'] + $_SESSION['score'];
-                            }
-                        }
-                        else{
-                            if(isset($_POST['boutton_suivant']) || isset($_POST['button_terminer'])){
-                                if (isset($_POST["reponse_texte0"])){
-                                    if(isset($questions[$i]->{'reponse'})){
-                                        if ($questions[$i]->{'reponse'} == $_POST["reponse_texte0"]) {
-                                            $_SESSION['rep']['score'] = $_SESSION['rep']['score'] + $_SESSION['score'];
-                                        }
-                                    }
-                                }
-                            }
+		                                    if(isset($_POST['btnNext']) || isset($_POST['btnLeave'])){
+		                                        if(isset($_POST["reponse_bonne$j"])){
+		                                            if(isset($questions[$i]->{'reponse'}->{'bonne_reponse'}[$j])){
+		                                                if ($questions[$i]->{'reponse'}->{'bonne_reponse'}[$j] == $_POST["reponse_bonne$j"]){
+		                                                    $reponse = 1;
+		                                                }
+		                                            }
+		                                        }
+		                                    }
+		                                }
+		                                for ($k=0;$k<count($questions[$i]->{'reponse'}->{'fausse_reponse'});$k++){
+		                                    if(isset($_POST['btnNext']) || isset($_POST['btnLeave'])){
+		                                        if(isset($_POST["reponse$k"])){
+		                                            if(isset($questions[$i]->{'reponse'}->{'fausse_reponse'}[$k])){
+		                                                if ($questions[$i]->{'reponse'}->{'fausse_reponse'}[$k] == $_POST["reponse$k"]){
+		                                                    $reponse = 2;
+		                                                }
+		                                            }
+		                                        }
+		                                    }
+		                                }
+		                            }
 
-                        }
-                    }
+		                            if($reponse == 1){
+		                                $_SESSION['rep']['score'] = $_SESSION['rep']['score'] + $_SESSION['score'];
+		                            }
+		                        }
+		                        else{
+		                            if(isset($_POST['btnNext']) || isset($_POST['btnLeave'])){
+		                                if (isset($_POST["reponse_texte0"])){
+		                                    if(isset($questions[$i]->{'reponse'})){
+		                                        if ($questions[$i]->{'reponse'} == $_POST["reponse_texte0"]) {
+		                                            $_SESSION['rep']['score'] = $_SESSION['rep']['score'] + $_SESSION['score'];
+		                                        }
+		                                    }
+		                                }
+		                            }
 
-                }
-                if(!isset($_POST['button_terminer'])){
-                   ?>
+		                        }
+		                    }
 
-				    <div class="questionHeader">
-				        <?php
-				        $nbreQuestion = file_get_contents('fichiers/nbreQuestion.json');
-				        $nbreQuestion = json_decode($nbreQuestion);
-				        echo '<form action="';
-				        echo '" method="post" id="myForm">';
-				        $question_afficher = '';
-        				$n=1;
-				        echo '<h1 class="questionTitle">Question '.$_SESSION['n'].'/' .$nbreQuestion[0]. '</h1>';
-				        $size = count($questions);
-				        $_SESSION['nbrpts'] = 0;
-				        if (isset($_GET['pages'])) {
-				            $_GET['pages'] = intval($_GET['pages']);
-				            $currentPage = $_GET['pages'];
-				        } else {
-				            $currentPage = 1;
-				        }
-				        $count =  $nbreQuestion[0];
-				        $perPage = 1;
-				        $pages = ceil($count / $perPage);
-				        $offeset = $perPage * ($currentPage - 1);
-				        $questions = array_slice($questions, $offeset, $perPage);
-				        for ($i=0; $i<count($questions); $i++) {
-				            if ($questions[$i]) {
-				                $question =  $questions[$i]->{'questions'};
-				                echo "<h4 class='gameQuestion'>$question</h4>";
-				            }
-				        }
-				        ?>
-				    </div>
-				    <div>
-				        <?php
+		                }
+		                if(!isset($_POST['btnLeave'])){
+		                   ?>
 
-				        for ($i=0; $i<count($questions); $i++){
-				            if ($questions[$i]) {
-				                echo '<span class="gameScore">' .  $questions[$i]->{'score'} . ' pts</span><br>';
-				            }
-				        }
-				        ?>
-				    </div>
-				    <div class="gameReponses">
-				        <?php
-				        $users = array();
-				        if(!isset($_SESSION['rep']) && !empty($_SESSION['rep'])) {
-				            $_SESSION['rep'] = array(
-				                'score'=>0
-				            );
-				        }
-				        for ($i=0; $i<count($questions); $i++){
-				            if ($questions[$i]){
-				                $reponse = '';
-				                $_SESSION['score'] = $questions[$i]->{'score'};
-				                if (is_object($questions[$i]->{'reponse'})){
-				                    if(sizeof($questions[$i]->{'reponse'}->{'bonne_reponse'}) == 1){
-				                        echo'<label class="container">'.$questions[$i]->{'reponse'}->{'bonne_reponse'}[0].
-				                            '<input class="checkbox" id= "reponse_bonne0"  value="'.$questions[$i]->{'reponse'}->{'bonne_reponse'}[0].
-				                            '" name="reponse_bonne0" type="checkbox"><span class="checkmark"></span></label><br>';
-				                    }
-				                    if(sizeof($questions[$i]->{'reponse'}->{'bonne_reponse'}) > 1){
-				                        for ($j=0; $j<sizeof($questions[$i]->{'reponse'}->{'bonne_reponse'});$j++){
-				                            echo'<label class="container">'.$questions[$i]->{'reponse'}->{'bonne_reponse'}[$j].
-				                                '<input class="checkbox" id= "reponse_bonne'.$j.'"  value="'.$questions[$i]->{'reponse'}->{'bonne_reponse'}[$j].
-				                                '" name="reponse_bonne'.$j.'" type="checkbox"><span class="checkmark"></span></label><br>';
-				                        }
-				                    }
-				                    for ($k=0;$k<count($questions[$i]->{'reponse'}->{'fausse_reponse'});$k++){
-				                        echo'<label>'.$questions[$i]->{'reponse'}->{'fausse_reponse'}[$k].
-				                            '<input class="checkbox" value="'.$questions[$i]->{'reponse'}->{'fausse_reponse'}[$k].'" name="reponse'.$k.
-				                            '" type="checkbox"><span class="checkmark"></span></label>';
-				                    }
-				                }
-				                else{
-				                    echo '<input placeholder="Tapez ici la reponse" id="reponse_texte0" name="reponse_texte0" class="sign-up-input" value="';
-				                    if(isset($_POST['reponse_texte0'])){
-				                        $_SESSION['reponse_texte0'] = $_POST['reponse_texte0'];
-				                        echo $_SESSION['reponse_texte0'];
-				                    }
-				                    echo '"/>';
-				                }
-				            }
-				        };
-				        $score = array(
-				            $_SESSION['login']=>array()
-				        );
-				        $precedent = $currentPage-1;
-				        $suivant = $currentPage + 1;
-				        $_SESSION['pages'] = $pages;
-				        $_SESSION['current'] = $currentPage;
-				        $_SESSION['precedent'] = $precedent;
-				        $_SESSION['suivant'] = $suivant;
-				        if($_SESSION['current'] < $_SESSION['pages']){
-				            echo ' <a href="player-home.php?&pages='.$_SESSION['suivant'].'"><input type="submit" value="Suivant"   name="boutton_suivant" class="btnSuivant"></a> ';
-				        }
-				        if ($_SESSION['current'] == $_SESSION['pages']){
-				            echo ' <a href="player-home.php?&pages='.$_SESSION['current'].'" ><input type="submit" name="button_terminer" class="btnOver" value="Términer"></a> ';
-				        }
-				        if($_SESSION['current']>1){
-				            $link ='player-home.php?';
-				            if($_SESSION['current']>2){
-				                $link .= 'pages='.$_SESSION['precedent'];
-				            }
-				            echo ' <a href="'.$link.'"><input type="button" value="Précédent" name="boutton_precedent" class="btnPrecendent"></a> ';
-				        }
-				        echo '</form>';
-				        ?>
-				    </div>
+						    <div class="questionHeader">
+						        <?php
+						        $nbreQuestion = file_get_contents('fichiers/nbreQuestion.json');
+						        $nbreQuestion = json_decode($nbreQuestion);
+						        echo '<form action="';
+						        echo '" method="post" id="game-form">';
+						        $question_afficher = '';
+		        				$n=1;
+						        echo '<h1 class="questionTitle">Question '.$_SESSION['n'].'/' .$nbreQuestion[0]. '</h1>';
+						        $size = count($questions);
+						        $_SESSION['nbrpts'] = 0;
+						        if (isset($_GET['pages'])) {
+						            $_GET['pages'] = intval($_GET['pages']);
+						            $currentPage = $_GET['pages'];
+						        } else {
+						            $currentPage = 1;
+						        }
+						        $pos = rand(0, $size);
+						        $count =  $nbreQuestion[0];
+						        $perPage = 1;
+						        $pages = ceil($count / $perPage);
+						        $offeset = $perPage * ($currentPage - 1);
+						        $questions = array_slice($questions, $offeset, $perPage);
+						        for ($i=0; $i<count($questions); $i++) {
+						            if ($questions[$i]) {
+						                $question =  $questions[$i]->{'questions'};
+						                echo "<h4 class='gameQuestion'>$question</h4>";
+						            }
+						        }
+						        ?>
+						    </div>
+						    <div>
+						        <?php
 
-                   <?php
-                }
-                if(isset($_POST["quitter"])){
-                    header("Location: index.php");
-                }
+						        for ($i=0; $i<count($questions); $i++){
+						            if ($questions[$i]) {
+						                echo '<span class="gameScore">' .  $questions[$i]->{'score'} . ' pts</span><br>';
+						            }
+						        }
+						        ?>
+						    </div>
+						    <div class="gameReponses">
+						        <?php
+						        $users = array();
+						        if(!isset($_SESSION['rep']) && !empty($_SESSION['rep'])) {
+						            $_SESSION['rep'] = array(
+						                'score'=>0
+						            );
+						        }
+						        for ($i=0; $i<count($questions); $i++){
+						            if ($questions[$i]){
+						                $reponse = '';
+						                $_SESSION['score'] = $questions[$i]->{'score'};
+						                if (is_object($questions[$i]->{'reponse'})){
+						                    if(sizeof($questions[$i]->{'reponse'}->{'bonne_reponse'}) == 1){
+						                        echo'<input class="checkbox" id= "reponse_bonne0"  value="'.$questions[$i]->{'reponse'}->{'bonne_reponse'}[0].
+						                            '" name="reponse_bonne0" type="radio">
+						                        <label class="container">'.$questions[$i]->{'reponse'}->{'bonne_reponse'}[0].
+						                            '</label><br>';
+						                    }
+						                    if(sizeof($questions[$i]->{'reponse'}->{'bonne_reponse'}) > 1){
+						                        for ($j=0; $j<sizeof($questions[$i]->{'reponse'}->{'bonne_reponse'});$j++){
+						                            echo'<input class="checkbox" id= "reponse_bonne'.$j.'"  value="'.$questions[$i]->{'reponse'}->{'bonne_reponse'}[$j].
+						                                '" name="reponse_bonne'.$j.'" type="checkbox">
+						                            <label class="container">'.$questions[$i]->{'reponse'}->{'bonne_reponse'}[$j].
+						                                '</label><br>';
+						                        }
+						                    }
+						                    for ($k=0;$k<count($questions[$i]->{'reponse'}->{'fausse_reponse'});$k++){
+						                    	if ($questions[$i]->{'type'}=="unique") {
+						                    		echo'<input class="checkbox" value="'.$questions[$i]->{'reponse'}->{'fausse_reponse'}[$k].'" name="reponse'.$k.
+						                            '" type="radio">
+						                    		<label>'.$questions[$i]->{'reponse'}->{'fausse_reponse'}[$k].
+						                            '</label>';
+						                    	}elseif ($questions[$i]->{'type'}=="multiple") {
+						                    		echo'<input class="checkbox" value="'.$questions[$i]->{'reponse'}->{'fausse_reponse'}[$k].'" name="reponse'.$k.
+						                            '" type="checkbox">
+						                    		<label>'.$questions[$i]->{'reponse'}->{'fausse_reponse'}[$k].
+						                            '</label>';
+						                    	}						                        
+						                    }
+						                }
+						                else{
+						                    echo '<input error="error-1" placeholder="Tapez ici la reponse" id="reponse_texte0" name="reponse_texte0" class="sign-up-input" value="';
+						                    if(isset($_POST['reponse_texte0'])){
+						                        $_SESSION['reponse_texte0'] = $_POST['reponse_texte0'];
+						                        echo $_SESSION['reponse_texte0'];
+						                    }
+						                    echo '"/>';
+						                    echo '<p class="input-validation" id="error-1"></p>';
+						                }
+						            }
+						        }
+						        $score = array(
+						            $_SESSION['login']=>array()
+						        );
+						        $precedent = $currentPage-1;
+						        $suivant = $currentPage + 1;
+						        $_SESSION['pages'] = $pages;
+						        $_SESSION['current'] = $currentPage;
+						        $_SESSION['precedent'] = $precedent;
+						        $_SESSION['suivant'] = $suivant;
+						        if($_SESSION['current'] < $_SESSION['pages']){
+						            echo ' <a href="player-home.php?&pages='.$_SESSION['suivant'].'"><input type="submit" value="Suivant"   name="btnNext" class="btnSuivant"></a> ';
+						        }
+						        if ($_SESSION['current'] == $_SESSION['pages']){
+						            echo ' <a href="player-home.php?&pages='.$_SESSION['current'].'" ><input type="submit" name="btnLeave" class="btnOver" value="Términer"></a> ';
+						        }
+						        if($_SESSION['current']>1){
+						            $link ='player-home.php?';
+						            if($_SESSION['current']>2){
+						                $link .= 'pages='.$_SESSION['precedent'];
+						            }
+						            echo ' <a href="'.$link.'"><input type="button" value="Précédent" name="btnPrev" class="btnPrecendent"></a> ';
+						        }
+						        echo '</form>';
+						        ?>
+						    </div>
 
-                if(isset($_POST['rejouer'])){
-                    header('Location:player-home.php');
-                }
+		                   <?php
+		                }
+		                if(isset($_POST["quitter"])){
+		                    header("Location: index.php");
+		                }
 
-                if(isset($_POST['button_terminer'])){
-                    $_SESSION['terminer'] = $_POST['button_terminer'];
-                    $_SESSION['points'] = $_SESSION['rep']['score'];
-                    if(isset($_SESSION['login'], $_SESSION['prenom'], $_SESSION['nom'])){
-                        $nbre_points = $_SESSION['rep']['score'];
-                        $score[$_SESSION['login']]['prenom'] = $_SESSION['prenom'];
-                        $score[$_SESSION['login']]['nom'] = $_SESSION['nom'];
-                        $score[$_SESSION['login']]['login'] = $_SESSION['login'];
-                        $score[$_SESSION['login']]['score'] = $nbre_points;
+		                if(isset($_POST['rejouer'])){
+		                    header('Location:player-home.php');
+		                }
 
-                        $js = file_get_contents('fichiers/score.json');
-                        $js= json_decode($js, true);
-                        if(!(isset($js))){
-                            $js[] = $score;
-                        }
-                        else{
-                            for ($i=0; $i<count($js); $i++){
-                                if(isset($js[$i][$_SESSION['login']])) {
-                                    foreach ($js[$i] as $key => $value) {
-                                        if (key_exists($key, $js[$i])){
-                                            if($js[$i][$key]['login'] ==  $_SESSION['login']){
-                                                $js[$i][$key]['score'] = $score[$_SESSION['login']]['score'];
-                                            }
-                                        }
-                                    }
-                                }
-                                else{
-                                    $js[$i][$_SESSION['login']]['prenom'] = $score[$_SESSION['login']]['prenom'];
-                                    $js[$i][$_SESSION['login']]['nom'] = $score[$_SESSION['login']]['nom'];
-                                    $js[$i][$_SESSION['login']]['login'] = $score[$_SESSION['login']]['login'];
-                                    $js[$i][$_SESSION['login']]['score'] =  $score[$_SESSION['login']]['score'];
-                                }
-                            }
-                        }
-                        $js = json_encode($js);
-                        file_put_contents('fichiers/score.json', $js);
-                    }
+		                if(isset($_POST['btnLeave'])){
+		                    $_SESSION['terminer'] = $_POST['btnLeave'];
+		                    $_SESSION['points'] = $_SESSION['rep']['score'];
+		                    if(isset($_SESSION['login'], $_SESSION['prenom'], $_SESSION['nom'])){
+		                        $nbre_points = $_SESSION['rep']['score'];
+		                        $score[$_SESSION['login']]['prenom'] = $_SESSION['prenom'];
+		                        $score[$_SESSION['login']]['nom'] = $_SESSION['nom'];
+		                        $score[$_SESSION['login']]['login'] = $_SESSION['login'];
+		                        $score[$_SESSION['login']]['score'] = $nbre_points;
+		                        $js = file_get_contents('fichiers/score.json');
+		                        $js= json_decode($js, true);
+		                        if(!(isset($js))){
+		                            $js[] = $score;
+		                        }
+		                        else{
+		                            for ($i=0; $i<count($js); $i++){
+		                                if(isset($js[$i][$_SESSION['login']])) {
+		                                    foreach ($js[$i] as $key => $value) {
+		                                        if (key_exists($key, $js[$i])){
+		                                            if($js[$i][$key]['login'] ==  $_SESSION['login']){
+		                                                $js[$i][$key]['score'] = $score[$_SESSION['login']]['score'];
+		                                            }
+		                                        }
+		                                    }
+		                                }
+		                                else{
+		                                    $js[$i][$_SESSION['login']]['prenom'] = $score[$_SESSION['login']]['prenom'];
+		                                    $js[$i][$_SESSION['login']]['nom'] = $score[$_SESSION['login']]['nom'];
+		                                    $js[$i][$_SESSION['login']]['login'] = $score[$_SESSION['login']]['login'];
+		                                    $js[$i][$_SESSION['login']]['score'] =  $score[$_SESSION['login']]['score'];
+		                                }
+		                            }
+		                        }
+		                        $js = json_encode($js);
+		                        file_put_contents('fichiers/score.json', $js);
+		                    }
 
-                    if($_SESSION['login']){
-                        for($i=0;$i<count($users); $i++){
-                            if(isset($users[$i]->{'login'})){
-                                if($users[$i]->{'login'} == $_SESSION['login']){
-                                    $users[$i]->{'score'}[] =   $nbre_points;
-                                }
-                            }
-                        }
-                        $js_users = json_encode($users);
-                        file_put_contents('fichiers/users.json', $js_users);
-                    }
-                    $_SESSION['rep']['score'] = 0;
+		                    if($_SESSION['login']){
+		                        for($i=0;$i<count($users); $i++){
+		                            if(isset($users[$i]->{'login'})){
+		                                if($users[$i]->{'login'} == $_SESSION['login']){
+		                                    $users[$i]->{'score'}[] =   $nbre_points;
+		                                }
+		                            }
+		                        }
+		                        $js_users = json_encode($users);
+		                        file_put_contents('fichiers/users.json', $js_users);
+		                    }
+		                    $_SESSION['rep']['score'] = 0;
 
-                    // $_SESSION['questions'] =  $questions;
-                }
+		                    // $_SESSION['questions'] =  $questions;
+		                }
 
-                if(isset($_POST['button_terminer'])){
-                    ?>
-                    <form action="" method="post">
-					    <?php
-					    $score = file_get_contents('fichiers/score.json');
-					    $score = json_decode($score);
-					    $questions = file_get_contents('fichiers/questions.json');
-					    $questions = json_decode($questions);
-					    shuffle($questions);
-					    for ($i=0;$i<count($score);$i++){
-					        if (isset($score[$i]->{$_SESSION['login']})){
-					            echo "<span class='score_pts'> Votre score : ";
-					            echo '<strong>';
-					            echo $score[$i]->{$_SESSION['login']}->{'score'};
-					            echo ' pts</strong>';
-					            echo "</span><br>";
-					        }
-					    }
-					    ?>
-						    <input class="btnOver" type="submit" value="Rejouer" name="rejouer">
-						    <input class="btnLeave" type="submit" value="Quitter" name="quitter">
-						</form>
-						<?php
-						if(isset($_POST['rejouer'])) {
-						    shuffle($questions);
-						}
-						?>
-                    <?php
-                }
+		                if(isset($_POST['btnLeave'])){
+		                    ?>
+		                    <form action="" method="post">
+							    <?php
+							    $score = file_get_contents('fichiers/score.json');
+							    $score = json_decode($score);
+							    $questions = file_get_contents('fichiers/questions.json');
+							    $questions = json_decode($questions);
+							    shuffle($questions);
+							    for ($i=0;$i<count($score);$i++){
+							        if (isset($score[$i]->{$_SESSION['login']})){
+							            echo "<span class='score_pts'> Votre score : ";
+							            echo '<strong>';
+							            echo $score[$i]->{$_SESSION['login']}->{'score'};
+							            echo ' pts</strong>';
+							            echo "</span><br>";
+							        }
+							    }
+							    ?>
+								    <input class="btnOver" type="submit" value="Rejouer" name="rejouer">
+								    <input class="btnLeave" type="submit" value="Quitter" name="quitter">
+								</form>
+								<?php
+								if(isset($_POST['rejouer'])) {
+								    shuffle($questions);
+								}
+								?>
+		                    <?php
+		                }
 
-                if(!($_SESSION['login'])){
-                    $_SESSION['rep']['score'] = 0;
-                }
+		                if(!($_SESSION['login'])){
+		                    $_SESSION['rep']['score'] = 0;
+		                }
 
-                ?>
-                <?php
-                if(isset($_POST['boutton_suivant'])){
-                    $_SESSION['n']=$_SESSION['suivant'];
-                    header('Location:player-home.php?&pages='.$_SESSION['suivant'].'');
-                }
-                if(!isset($_POST['boutton_suivant'])){
-                    $_SESSION['n']=$_SESSION['precedent'];
-                }
-                ?>
-					</div>
+		                ?>
+		                <?php
+		                if(isset($_POST['btnNext'])){
+		                    $_SESSION['n']=$_SESSION['suivant'];
+		                    header('Location:player-home.php?&pages='.$_SESSION['suivant'].'');
+		                }
+		                if(!isset($_POST['btnNext'])){
+		                    if(isset($_SESSION['precedent'])){
+		                        $_SESSION['n']=$_SESSION['precedent'];
+		                    }else{
+		                        $_SESSION['n'] = 1;
+		                    }
+		                }
+		                ?>
+							</div>
 					<div class="marks-section">
 						<div class="form-wizard-wrapper">
 							<ul>
@@ -464,6 +492,7 @@ session_start();
 	</div>
 </div>
 <script type="text/javascript">
+
 		jQuery(document).ready(function() {
 
 			jQuery('.form-wizard-wrapper').find('.form-wizard-link').click(function(){
@@ -522,6 +551,34 @@ session_start();
 				});
 			});
 		});
+
+		document.getElementById("game-form").addEventListener("submit",function(e){
+				const inputs= document.getElementsByTagName("input");
+				var error=false;
+				for(input of inputs){
+					if(input.hasAttribute("error")){
+						var idDivError=input.getAttribute("error");
+					if(!input.value){
+						document.getElementById(idDivError).innerText="Désolé mais vous êtes obligé de répondre"
+						error=true;
+						}
+						
+					}
+				}
+				if(error){
+					e.preventDefault();
+					return false;
+				}
+			})
+			const inputs= document.getElementsByTagName("input");
+			for(input of inputs){
+				input.addEventListener("keyup",function(e){
+					if (e.target.hasAttribute("error")){
+						var idDivError=e.target.getAttribute("error");
+						document.getElementById(idDivError).innerText=""
+					}
+				})
+			}
 	</script>
 </body>
 </html>

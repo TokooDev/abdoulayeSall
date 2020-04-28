@@ -84,6 +84,7 @@
 				    ?>
 				</tbody>
 			</table>
+			<div class="question-pagination">
 			<?php
 				$precedent = $currentPage-1;
 				$suivant = $currentPage + 1;
@@ -98,6 +99,7 @@
 				    echo ' <a href="admin-home.php?page=playersList&pages='.$suivant.'"><input type="button" class="btn_suivant" value="Suivant"></a> ';
 				}
 			?>
+		</div>
 		</div>
 	</div>
 </div>

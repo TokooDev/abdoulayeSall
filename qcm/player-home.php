@@ -247,7 +247,7 @@ session_start();
 						            if($_SESSION['current']>2){
 						                $link .= 'pages='.$_SESSION['precedent'];
 						            }
-						            echo ' <a href="'.$link.'"><input type="button" value="Précédent" name="btnPrev" class="btnPrecendent"></a> ';
+						            echo ' <a href="'.$link.'"><input type="button" value="Précédent" name="btnPrev" class="btnPrecendent">&raquo;</a> ';
 						        }
 						        echo '</form>';
 						        ?>
@@ -312,8 +312,6 @@ session_start();
 		                        file_put_contents('fichiers/users.json', $js_users);
 		                    }
 		                    $_SESSION['rep']['score'] = 0;
-
-		                    // $_SESSION['questions'] =  $questions;
 		                }
 
 		                if(isset($_POST['btnLeave'])){

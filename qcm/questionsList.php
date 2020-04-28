@@ -43,7 +43,7 @@
 			            $pageActuelle = 1;
 			        }
 			        $count = count($questions);
-			        $parPage = 3;
+			        $parPage = 5;
 			        $pages = ceil($count/$parPage);
 			        $pas = $parPage * ($pageActuelle - 1);
 			        $questions = array_slice($questions,$pas, $parPage);
@@ -91,7 +91,8 @@
 			        ?>
 			        </div>
 			        <div>
-			        <?php
+			        	<div class="question-pagination">
+			        		<?php
 			        $precedent = $pageActuelle-1;
 			        $suivant = $pageActuelle + 1;
 			        if($pageActuelle>1){
@@ -105,6 +106,8 @@
 			            echo ' <a href="admin-home.php?page=questionsList&pages='.$suivant.'"><button class="btn_suivant">Suivant &raquo;</button></a> ';
 			        }
 				?>
+			        	</div>
+			        
 			</div>
 		</div>
 	</div>

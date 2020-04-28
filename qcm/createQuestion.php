@@ -31,18 +31,25 @@ if (isset($_POST['question'], $_POST['score'], $_POST['type_question'])){
             }
         }
         if($type_reponse == '3'){
-            if(isset($_POST['reponse_texte']) && empty($_POST['reponse_texte'])){
-                $erreurMessage= 'Veuillez entrer votre reponse';
-            }else{
+            if(isset($_POST['number_reponse']) && $_POST['number_reponse'] <= 0){
+                $erreurMessage= 'veuillez entrer un nombre strictement positif';
+            }
+            else{
+                for ($i=1; $i<=$_POST['number_reponse'];$i++){
+                    if(isset( $_POST['reponse'.$i]) && empty( $_POST['reponse'.$i])){
+                        $erreurMessage= 'Donner la reponse '.$i.'!';
+                    }else{
+                        if(isset($_POST['number_reponse'])){
                 if (!(isset($rep)) && !(empty($rep))){
                     $rep = array(
                         'bonne_reponse'=>'',
                         'fausse_reponse'=>''
                     );
                 }
+
                 $bonne_reponse = '';
                 $mauvaise_response = '';
-                for($i=1; $i<=2; $i++){
+                for($i=1; $i<=$_POST['number_reponse']; $i++){
                     if(isset($_POST['reponse'.$i])){
                         if(isset($_POST['c'.$i]))
                         {
@@ -60,6 +67,10 @@ if (isset($_POST['question'], $_POST['score'], $_POST['type_question'])){
                     'score'=>$score,
                     'reponse'=>$rep
                 );
+
+            }
+                    }
+                }
             }
         }
 
@@ -157,12 +168,13 @@ if (isset($_POST['question'], $_POST['score'], $_POST['type_question'])){
                              <img width="45" height="50" src="Images/Icônes/ic-ajout-réponse.png">
                             </a>
                             </div>
-                            <div id="unique">
-                            </div>
                             <div class="create-question-section">
                                 <div id='ajout_type_reponse'>
                                 <p id="titre" class="titre"></p>
                                 </div>
+                            </div>
+
+                            <div id="unique">
                             </div>
                             <div id="conteneur">
                             </div>
@@ -208,6 +220,18 @@ function ajoutCheckbox(){
         }
         DivToLoad.innerHTML = tempInput;
 }
+var nbrRadio = 0; 
+function ajoutRadio(){
+    var nbChampsAjout = document.getElementById('number_reponse').value;
+    var DivToLoad = document.getElementById('conteneur');
+        tempInput = "";
+        for(let i = 1 ; i <= nbChampsAjout; i++){
+            nbrRadio++;
+            tempInput+= '<p class="create-question-section"><label id="label'+i+'" for="reponse'+i+'" class="reponse-label">Réponse n°'+i+'</label><input type="text" name="reponse'+i+'" error="error'+i+'" class="create-question-input-generated"  id="reponse'+i+'"/><span class="reponse-icones"><input class="multipleCheckbox"  type="radio" name="c'+i+'" id="c'+i+'"/><a href="#"  onclick="deleteInput();" id="btnDelete'+i+'"><img  src="images/Icônes/ic-supprimer.png" class="img-delete"/></a></span></p>' +
+                '<p class="input-validation" id="error'+i+'"></p>';
+        }
+        DivToLoad.innerHTML = tempInput;
+}
 
 function type_questions(){
     var type_question = document.getElementById('type_question');
@@ -215,15 +239,13 @@ function type_questions(){
     var titre = document.getElementById("titre");
     var select_type = type_question[type_question.selectedIndex].value;
     if(select_type === '3'){
-        var DivToLoad = document.getElementById('unique');
-        tempInput = "";
-        for(let i =1; i<=2; i++){
-          
-                tempInput+= '<div class="create-question-section"><label id="label'+i+'" for="reponse'+i+'" class="reponse-label">Réponse n°'+i+'</label><input type="text" id="reponse'+i+'" name="reponse'+i+'" error="error'+i+'" class="create-question-input-generated"/><span class="reponse-icones"><input class="multipleRadio"  type="radio" name="c'+i+'" id="c'+i+'" /><a href="" onclick="deleteInput();" id="btnDelete'+i+'"><img class="img-delete" src="Images/Icônes/ic-supprimer.png"/></a></span></div>' +
-                '<p class="input-validation" id="error'+i+'"></p>'
-        
-        }
-        DivToLoad.innerHTML = tempInput;
+        titre.innerHTML = '<div class="create-question-section"><label class="create-question-label">Nbre réponses</label>\n' +
+                '        <input type="number" error="error-11" class="create-question-input-generated" name="number_reponse" placeholder="Tapez le nombre de réponses Ex:3" id="number_reponse">\n' +
+                '<a class="create-question-plus" href="#" name="ajoutchamp"  onclick="ajoutRadio()"><img src="Images/Icônes/ic-ajout-réponse.png" width="45" height="43"></a>'+
+                '<p class="input-validation" id="error-11"></p></div>'
+
+                ;
+            titre.body.appendChild(titre);
         
     }else{
         if(select_type === '1'){

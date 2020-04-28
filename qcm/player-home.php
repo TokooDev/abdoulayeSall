@@ -207,7 +207,7 @@ session_start();
 						                    		echo'<input class="checkbox" value="'.$questions[$i]->{'reponse'}->{'fausse_reponse'}[$k].'" name="reponse'.$k.
 						                            '" type="radio">
 						                    		<label>'.$questions[$i]->{'reponse'}->{'fausse_reponse'}[$k].
-						                            '</label>';
+						                            '</label><br>';
 						                    	}elseif ($questions[$i]->{'type'}=="multiple") {
 						                    		echo'<input class="checkbox" value="'.$questions[$i]->{'reponse'}->{'fausse_reponse'}[$k].'" name="reponse'.$k.
 						                            '" type="checkbox">
@@ -247,7 +247,7 @@ session_start();
 						            if($_SESSION['current']>2){
 						                $link .= 'pages='.$_SESSION['precedent'];
 						            }
-						            echo ' <a href="'.$link.'"><input type="button" value="Précédent" name="btnPrev" class="btnPrecendent">&raquo;</a> ';
+						            echo ' <a href="'.$link.'"><input type="button" value="Précédent" name="btnPrev" class="btnPrecendent"></a> ';
 						        }
 						        echo '</form>';
 						        ?>
@@ -325,7 +325,7 @@ session_start();
 							    shuffle($questions);
 							    for ($i=0;$i<count($score);$i++){
 							        if (isset($score[$i]->{$_SESSION['login']})){
-							            echo "<span class='score_pts'> Votre score : ";
+							            echo "<span class='finalScore'> Votre score est : ";
 							            echo '<strong>';
 							            echo $score[$i]->{$_SESSION['login']}->{'score'};
 							            echo ' pts</strong>';

@@ -84,7 +84,7 @@
 			                        }
 			                    }
 			                    else{
-			                        echo "<div class='reponse'><input class='input-reponse' value='".$questions[$i]->{'reponse'}."'/></div><br/>";
+			                        echo "<div class='reponse'><input disabled='true' class='input-reponse' value='".$questions[$i]->{'reponse'}."'/></div><br/>";
 			                    }
 			                }
 			        }

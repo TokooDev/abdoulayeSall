@@ -601,7 +601,7 @@ background-color: #fff;
 .side-navbar-content{
 	position: relative;
 	width: 100%;
-	height: 150px;
+	height: 190px;
 	border: 1px solid #f8fdfd;
 	background-color: #f8fdfd;
 }
@@ -724,8 +724,8 @@ thead{
 /*Liste des questions*/
 .questions-list{
 	width: 100%;
-	height: 550px;
 	margin-left: 100px;
+	margin-top: -30px;
 	color: gray;
 	border-radius: 10% 10%;
 }
@@ -753,9 +753,9 @@ thead{
 	position: absolute;
 	float: left;
 	width: 120%;
-	height: 550px;
-	top: 80px;
-	padding: 20px 30px;
+	height: 600px;
+	top: 50px;
+	padding: 15px 35px;
 	left: 30px;
 	color: gray;
 	border:2px solid #cab4a4;
@@ -808,7 +808,7 @@ thead{
 .input-reponse{
 	width: 300px;
 	height: 30px;
-	margin-top: 15px;
+	margin-top: 5px;
 	border:1px solid #cab4a4 ;
 	border-radius: 4px 4px;
 }
@@ -948,4 +948,9 @@ thead{
 	background-color: #51bfd0;
 	border:1px solid #51bfd0;
 	border-radius: 8px 8px 8px 8px;
+}
+.stats{
+	width: 95%;
+	height: 100%;
+	margin: 40px;
 }

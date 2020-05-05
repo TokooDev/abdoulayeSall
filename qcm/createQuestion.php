@@ -139,162 +139,50 @@ if (isset($_POST['question'], $_POST['score'], $_POST['type_question'])){
     <title>Document</title>
 </head>
 <body>
-                <div>
-                    <p class="questions-creation-title">PARAMÉTREZ VOTRE QUESTION</p>
-                    <?php if (isset($erreurMessage)) {
-                echo "<p class='erreurMessage'>".$erreurMessage."</p>";
-            } ?>
-                    <div class="questions-creation">
-                        <form action="#" method="post" name="form" id="form-create-question">
-                            <div class="create-question-section">
-                                <label for="question" class="create-question-label">Questions</label>
-                                <input type="text" id="question" error="error-1" name="question" class="create-question-input-question">
-                            </div>
-                            <p class='input-validation' id="error-1"></p>
-                            <div class="create-question-section">
-                                <label for="score" class="create-question-label">Nbre de points</label>
-                                <input class="create-question-input-question" error="error-2" id="score" type="number" name="score">
-                            </div>
-                            <p class='input-validation' id="error-2"></p>
-                            <div class="create-question-section">
-                                <label class="create-question-label" for="type_question">Type de réponse</label>
-                                    <select class="create-question-select" name="type_question" id="type_question">
-                                        <option class="defaut" value="defaut">Donnez le type de réponse</option>
-                                        <option value="1">Choix simple</option>
-                                        <option value="2">Choix multiple</option>
-                                        <option value="3">Choix unique</option>
-                                    </select>
-                             <a class="create-question-plus" href="#" name="ajout_nombre_reponse"  onclick="type_questions()">
-                             <img width="45" height="50" src="Images/Icônes/ic-ajout-réponse.png">
-                            </a>
-                            </div>
-                            <div class="create-question-section">
-                                <div id='ajout_type_reponse'>
-                                <p id="titre" class="titre"></p>
-                                </div>
-                            </div>
-
-                            <div id="unique">
-                            </div>
-                            <div id="conteneur">
-                            </div>
-                            <div class="create-question-section">
-                                <button class="create-question-btn">Enregistrer</button>
-                            </div>
-                            
-                           
-                        </form>
-                    </div>
-                    <br>
-
+    <div>
+        <p class="questions-creation-title">PARAMÉTREZ VOTRE QUESTION</p>
+        <?php if (isset($erreurMessage)) {
+            echo "<p class='erreurMessage'>".$erreurMessage."</p>";
+        } ?>
+        <div class="questions-creation">
+            <form action="#" method="post" name="form" id="form-validation">
+                <div class="create-question-section">
+                    <label for="question" class="create-question-label">Questions</label>
+                    <input type="text" id="question" error="error-1" name="question" class="create-question-input-question">
                 </div>
-
+                <p class='input-validation' id="error-1"></p>
+                <div class="create-question-section">
+                    <label for="score" class="create-question-label">Nbre de points</label>
+                    <input class="create-question-input-question" error="error-2" id="score" type="number" name="score">
+                </div>
+                <p class='input-validation' id="error-2"></p>
+                <div class="create-question-section">
+                    <label class="create-question-label" for="type_question">Type de réponse</label>
+                        <select class="create-question-select" name="type_question" id="type_question">
+                            <option class="defaut" value="defaut">Donnez le type de réponse</option>
+                            <option value="1">Choix simple</option>
+                            <option value="2">Choix multiple</option>
+                            <option value="3">Choix unique</option>
+                        </select>
+                 <a class="create-question-plus" href="#" name="ajout_nombre_reponse"  onclick="type_questions()">
+                 <img width="45" height="50" src="Images/icones/ic-ajout-réponse.png">
+                </a>
+                </div>
+                <div class="create-question-section">
+                    <div id='ajout_type_reponse'>
+                    <p id="titre" class="titre"></p>
+                    </div>
+                </div>
+                <div id="unique">
+                </div>
+                <div id="conteneur">
+                </div>
+                <div class="create-question-section">
+                    <button class="create-question-btn">Enregistrer</button>
+                </div>               
+            </form>
+        </div>
+        <br>
+    </div>
 </body>
 </html>
-<script type="text/javascript">
-    
-    function deleteInput(){
-    let nbChampsAjout = document.getElementById('number_reponse').value;
-    for (let i = 1 ; i <= nbChampsAjout; i++){
-        let log = document.getElementById("btnDelete"+i);
-        log.addEventListener('click', function (){
-            let label = document.getElementById("label"+i);
-            let checkbox = document.getElementById("c"+i);
-            let input = document.getElementById("reponse"+i);
-            label.remove();
-            input.remove();
-            checkbox.remove();
-            log.remove(); 
-        });
-    }
-}
-var nbrCheckbox = 0; 
-function ajoutCheckbox(){
-    var nbChampsAjout = document.getElementById('number_reponse').value;
-    var DivToLoad = document.getElementById('conteneur');
-        tempInput = "";
-        for(let i = 1 ; i <= nbChampsAjout; i++){
-            nbrCheckbox++;
-            tempInput+= '<p class="create-question-section"><label id="label'+i+'" for="reponse'+i+'" class="reponse-label">Réponse n°'+i+'</label><input type="text" name="reponse'+i+'" error="error'+i+'" class="create-question-input-generated"  id="reponse'+i+'"/><span class="reponse-icones"><input class="multipleCheckbox"  type="checkbox" name="c'+i+'" id="c'+i+'"/><a href="#"  onclick="deleteInput();" id="btnDelete'+i+'"><img  src="images/Icônes/ic-supprimer.png" class="img-delete"/></a></span></p>' +
-                '<p class="input-validation" id="error'+i+'"></p>';
-        }
-        DivToLoad.innerHTML = tempInput;
-}
-var nbrRadio = 0; 
-function ajoutRadio(){
-    var nbChampsAjout = document.getElementById('number_reponse').value;
-    var DivToLoad = document.getElementById('conteneur');
-        tempInput = "";
-        for(let i = 1 ; i <= nbChampsAjout; i++){
-            nbrRadio++;
-            tempInput+= '<p class="create-question-section"><label id="label'+i+'" for="reponse'+i+'" class="reponse-label">Réponse n°'+i+'</label><input type="text" name="reponse'+i+'" error="error'+i+'" class="create-question-input-generated"  id="reponse'+i+'"/><span class="reponse-icones"><input class="multipleCheckbox"  type="radio" name="c'+i+'" id="c'+i+'"/><a href="#"  onclick="deleteInput();" id="btnDelete'+i+'"><img  src="images/Icônes/ic-supprimer.png" class="img-delete"/></a></span></p>' +
-                '<p class="input-validation" id="error'+i+'"></p>';
-        }
-        DivToLoad.innerHTML = tempInput;
-}
-
-function type_questions(){
-    var type_question = document.getElementById('type_question');
-    var type_reponse = document.getElementById('ajout_type_reponse');
-    var titre = document.getElementById("titre");
-    var select_type = type_question[type_question.selectedIndex].value;
-    if(select_type === '3'){
-        titre.innerHTML = '<div class="create-question-section"><label class="create-question-label">Nbre réponses</label>\n' +
-                '        <input type="number" error="error-11" class="create-question-input-generated" name="number_reponse" placeholder="Tapez le nombre de réponses Ex:3" id="number_reponse">\n' +
-                '<a class="create-question-plus" href="#" name="ajoutchamp"  onclick="ajoutRadio()"><img src="Images/Icônes/ic-ajout-réponse.png" width="45" height="43"></a>'+
-                '<p class="input-validation" id="error-11"></p></div>'
-
-                ;
-            titre.body.appendChild(titre);
-        
-    }else{
-        if(select_type === '1'){
-            titre.innerHTML = '<div class="create-question-section"><label  for="reponse" class="reponse-label">Réponse</label><input type="text" error="error-10" class="create-question-input-question" id="reponse"  name="reponse_simple"</div>'+
-                                '<p class="input-validation" id="error-10"></p>';
-            titre.body.appendChild(titre);
-        }
-        else{
-            if(select_type=='2'){
-                titre.innerHTML = '<div class="create-question-section"><label class="create-question-label">Nbre réponses</label>\n' +
-                '        <input type="number" error="error-11" class="create-question-input-generated" name="number_reponse" placeholder="Tapez le nombre de réponses Ex:3" id="number_reponse">\n' +
-                '<a class="create-question-plus" href="#" name="ajoutchamp"  onclick="ajoutCheckbox()"><img src="Images/Icônes/ic-ajout-réponse.png" width="45" height="43"></a>'+
-                '<p class="input-validation" id="error-11"></p></div>'
-
-                ;
-            titre.body.appendChild(titre);
-        }else{
-            titre.innerHTML='<p class="input-validation">Veuillez séléctionner le type de réponses svp</p>';
-            titre.body.appendChild(titre);
-        }
-        }
-    }
-}
-
-document.getElementById("form-create-question").addEventListener("submit",function(e){
-                const inputs= document.getElementsByTagName("input");
-                var error=false;
-                for(input of inputs){
-                    if(input.hasAttribute("error")){
-                        var idDivError=input.getAttribute("error");
-                    if(!input.value){
-                        document.getElementById(idDivError).innerText="Ce champ est obligatoire"
-                        error=true;
-                        }
-                        
-                    }
-                }
-                if(error){
-                    e.preventDefault();
-                    return false;
-                }
-            })
-            const inputs= document.getElementsByTagName("input");
-            for(input of inputs){
-                input.addEventListener("keyup",function(e){
-                    if (e.target.hasAttribute("error")){
-                        var idDivError=e.target.getAttribute("error");
-                        document.getElementById(idDivError).innerText=""
-                    }
-                })
-            }
-</script>

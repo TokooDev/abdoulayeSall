@@ -10,7 +10,7 @@ session_start();
 					$_SESSION['nom']=$users[$i]['nom'];
 					$_SESSION['login']=$users[$i]['login'];
 					if ($users[$i]['profil']=='admin') {
-						header('Location: admin-home?page=questionsList');
+						header('Location: admin-home.php?page=questionsList');
 					}elseif ($users[$i]['profil']=='player') {
 						header('Location: player-home.php');
 					}else{
@@ -33,6 +33,7 @@ session_start();
 	<meta name="author" content="Abdoulaye SALL" />
 	<meta name="description" content="Sonatel Academy, projet_02 php"/>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
 </head>
 <body>
 		<div class="header">
@@ -49,13 +50,20 @@ session_start();
 				Formulaire de connexion<span class="btn-leave">&times;</span>
 				</div>
 				<div class="login-content">
-					<form action="" method="POST" id="form-connexion">
+					<?php
+						
+							if (isset($_SESSION['succesMessage'])) {
+								$succesMessage=$_SESSION['succesMessage'];
+								echo "<p class='succesMessage'>".$succesMessage."</p>";
+							}
+						?>
+					<form action="" method="POST" id="form-validation">
 						<div class="section">
-							<input class="input" error="error-1" placeholder="Login" value="<?php if(isset($_POST['login'])){ echo $_POST['login']; } ?>" type="text" name="login" id="login"> <label for="login"><img src="images/Icônes/ic-login.png"></label>
+							<input class="input" error="error-1" placeholder="Login" value="<?php if(isset($_POST['login'])){ echo $_POST['login']; } ?>" type="text" name="login" id="login"> <label for="login"><img src="images/icones/ic-login.png"></label>
 							<p class='login-input-validation' id="error-1"></p>
 						</div>
 						<div class="section">
-							<input class="input" error="error-2" placeholder="Password" type="password" name="mdp" id="password"> <label for="password"><img src="images/Icônes/icone-password.png" width="15"></label>
+							<input class="input" error="error-2" placeholder="Password" type="password" name="mdp" id="password"> <label for="password"><img src="images/icones/icone-password.png" width="15"></label>
 							<p class='login-input-validation' id="error-2"></p>
 						</div>
 						<?php if (isset($erreurMessage)) {
@@ -68,34 +76,6 @@ session_start();
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript">
-			document.getElementById("form-connexion").addEventListener("submit",function(e){
-				const inputs= document.getElementsByTagName("input");
-				var error=false;
-				for(input of inputs){
-					if(input.hasAttribute("error")){
-						var idDivError=input.getAttribute("error");
-					if(!input.value){
-						document.getElementById(idDivError).innerText="Ce champ est obligatoire"
-						error=true;
-						}
-						
-					}
-				}
-				if(error){
-					e.preventDefault();
-					return false;
-				}
-			})
-			const inputs= document.getElementsByTagName("input");
-			for(input of inputs){
-				input.addEventListener("keyup",function(e){
-					if (e.target.hasAttribute("error")){
-						var idDivError=e.target.getAttribute("error");
-						document.getElementById(idDivError).innerText=""
-					}
-				})
-			}
-		</script>
+		<script type="text/javascript" src="js/scripts.js"></script>
 </body>
 </html>

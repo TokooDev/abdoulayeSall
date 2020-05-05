@@ -14,6 +14,7 @@
 				$multipleCount=json_encode($multipleCount+1);
 			}
 		}
+		$questionsTotal=$textCount+$uniqueCount+$multipleCount;
 		//Comptes
 		$player = file_get_contents('fichiers/users.json');
 		$player = json_decode($player);
@@ -26,7 +27,10 @@
 				$adminsCount=json_encode($adminsCount+1);
 			}
 		}
+		$usersTotal=$playersCount+$adminsCount;
 		//Score
+		$player = file_get_contents('fichiers/users.json');
+		$player = json_decode($player);
 		$playerTab = [];
 		$score = [];
 		for($i=0;$i<count($player);$i++){
@@ -39,8 +43,7 @@
 		                $score[] = $tmp;
 
 		                $playerTab[] = array(
-		                    'prenom' => $player[$i]->{'prenom'},
-		                    'nom'=>$player[$i]->{'nom'},
+		                    'login'=>$player[$i]->{'login'},
 		                    'meileur_score'=>$tmp
 		                );
 		            }
@@ -53,50 +56,60 @@
 		    for ($j = 0; $j < count($playerTab); $j++){
 		        if($score[$i] == $playerTab[$j]['meileur_score']) {
 		            $classement[] = array(
-		                'prenom' => $playerTab[$j]['prenom'],
-		                'nom'=> $playerTab[$j]['nom'],
+		                'login'=> $playerTab[$j]['login'],
 		                'meileur_score'=> $playerTab[$j]['meileur_score']
 		            );
 		        }
 		    }
 		}
 		$classementParScore = array_unique($classement, SORT_REGULAR);
-		$nbr=0;
+		$nbr = 0;
+		$top5=[];
 	    for ($j=0;$j<count($classement);$j++){
             if(isset($classementParScore[$j])){
-                $nom=json_encode($classementParScore[$j]['nom']);
-                $prenom= json_encode($classementParScore[$j]['prenom']);
-                $meilleurScore= json_encode($classementParScore[$j]['meileur_score']);
-                $nbr=$nbr+1;
+            	$top5[] = array(
+		                'login'=> $classementParScore[$j]['login'],
+		                'meileur_score'=> $classementParScore[$j]['meileur_score']
+		            );
+                $nbr++;
             }
-            if($nbr ==5){
+            if($nbr == 5){
                 break;
             }
 		}
+		$n=0;
+		foreach ($top5 as  $value) {
+			$top5['login']= json_encode($value['login']);
+			$top5['meileur_score'] =json_encode($value['meileur_score']);
+			$n++;
+		}
+		
 	?>
 <script src="js/chart/Chart.js"></script>
 <div class="form-wizard-wrapper">
 	<ul>
 	<li><a class="form-wizard-link" href="javascript:;" data-attr="users"><span>Utilisateurs</span></a></li>
 	<li><a class="form-wizard-link" href="javascript:;" data-attr="questions"><span>Questions</span></a></li>
-	<li><a class="form-wizard-link" href="javascript:;" data-attr="scores"><span>Scores</span></a></li>
+	<li><a class="form-wizard-link" href="javascript:;" data-attr="scores"><span>Top 5 des meilleurs scores</span></a></li>
 	<li class="form-wizardmove-active"></li>
 	</ul>
 	<div class="form-wizard-content-wrapper">
 		<div class="form-wizard-content show" data-tab-content="users">
 			<div class="stats">
-				<canvas id="pie" width="800" height="350"></canvas>
+				<p class="usersTotal"><span><img class="statIcon" src="images/Icônes/users.png"></span> Nombre total d'utilisateurs: <?php echo $usersTotal;  ?></p>
+				<canvas id="pie" width="800" height="400"></canvas>
 			</div>
 		</div>
 		<div class="form-wizard-content" data-tab-content="questions">
 			<div class="stats">
-				<canvas id="line" width="800" height="350"></canvas>
+				<p class="usersTotal"><span><img class="statIcon" src="images/Icônes/question.png"></span> Nombre total de questions: <?php echo $questionsTotal;  ?></p>
+				<canvas id="line" width="800" height="400"></canvas>
 
 			</div>	
 		</div>
 		<div class="form-wizard-content" data-tab-content="scores">
 			<div class="stats">
-				<canvas id="bar" width="800" height="350"></canvas>
+				<canvas id="bar" width="800" height="400"></canvas>
 
 			</div>
 		</div>		
@@ -104,21 +117,15 @@
 </div>
 <script type="text/javascript">
 	//Score
-var ctx = document.getElementById('bar');
-var colors = new Chart(ctx, {
-    type: 'bar',
+var scores = document.getElementById('bar');
+var bar = new Chart(scores, {
+    type: 'line',
     data: {
-        labels: [<?php echo $prenom; ?>],
+        labels: [<?php echo $top5['login']; ?>],
         datasets: [{
             label: 'Score',
-            data: [<?php echo $meilleurScore; ?>],
-            backgroundColor: [
-                '#51BFD0',
-                '#3ADDD6',
-                '#e56CA7',
-                '#e56946',
-                '#F8FDFD'
-            ],
+            data: [<?php echo $top5['meileur_score']; ?>],
+            backgroundColor: ['#51BFD0','#3ADDD6','#e56CA7','#e56946','#F8FDFD'],
             borderColor: [
                 '#51BFD0',
                 '#3ADDD6',
@@ -149,8 +156,8 @@ var colors = new Chart(ctx, {
     }
 });
 //Utilisateurs
-var ctx = document.getElementById('pie');
-var colors = new Chart(ctx, {
+var users = document.getElementById('pie');
+var pie = new Chart(users, {
     type: 'pie',
     data: {
         labels: ['Adminitrateurs', 'Joueurs'],
@@ -168,13 +175,6 @@ var colors = new Chart(ctx, {
         }]
     },
     options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        },
         title: {
             display: true,
             text: 'Représentation des types de compte',
@@ -188,21 +188,21 @@ var colors = new Chart(ctx, {
 });
 
 //Questions
-var ctx = document.getElementById('line');
-var colors = new Chart(ctx, {
-    type: 'line',
+var questions = document.getElementById('line');
+var line = new Chart(questions, {
+    type: 'bar',
     data: {
         labels: ['Text', 'Unique', 'Multiple'],
         datasets: [{
             label: 'Nombre',
             data: [<?php echo $textCount;  ?>, <?php echo $uniqueCount;  ?>, <?php echo $multipleCount;  ?>],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
+                 '#51BFD0',
                 '#3ADDD6',
-                'rgba(255, 206, 86, 0.2)'
+                '#e56CA7'
             ],
             borderColor: [
-                '#51BFD0',
+                 '#51BFD0',
                 '#3ADDD6',
                 '#e56CA7'
             ],

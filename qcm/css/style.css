@@ -102,6 +102,18 @@ body{
 	padding-left: 20px;
 	border-radius: 5px;
 }
+.succesMessage{
+	width: 90%;
+	height: 30px;
+	background-color: #b5e0b5;
+	font-size: 15px;
+	color: #377139;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 10px;
+	padding-left: 20px;
+	border-radius: 5px;
+}
 .input-validation{
 	color: #e56946;
     margin-top: -0.6px;
@@ -425,9 +437,9 @@ top: 0;
 transform: translate3d(0px, 0px, 0px);
 }
 .form-wizard-content-wrapper {
-height: 400px;
+height: 500px;
 position: relative;
-background-color: #fff;
+background-color: white;
 }
 .topBestScore{
 	margin-left: 30px;
@@ -729,11 +741,12 @@ thead{
 	color: gray;
 	border-radius: 10% 10%;
 }
-.questions-list-header{
+.question-list-header{
 	position: relative;
-	width: 50%;
-	height: 50px;
+	width: 100%;
+	height: 65px;
 	display: flex;
+	margin-top: 5px;
 }
 .questions-list-title{
 	position: relative;
@@ -752,9 +765,10 @@ thead{
 .questions-list-content{
 	position: absolute;
 	float: left;
+	margin-top: 8px;
 	width: 120%;
 	height: 600px;
-	top: 50px;
+	top: 45px;
 	padding: 15px 35px;
 	left: 30px;
 	color: gray;
@@ -953,4 +967,13 @@ thead{
 	width: 95%;
 	height: 100%;
 	margin: 40px;
+}
+.usersTotal{
+	text-align: center;
+	font-size: 25px;
+}
+.statIcon{
+	position: absolute;
+	top: 55px;
+	left: 210px;
 }

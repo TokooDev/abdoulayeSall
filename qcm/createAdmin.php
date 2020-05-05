@@ -33,6 +33,7 @@
 								$users[]=$user;
 								$users=json_encode($users);
 								file_put_contents('fichiers/users.json', $users);
+								$succesMessage="Admin créé avec succés";
 							}	
 					}
 				}
@@ -48,11 +49,15 @@
 		<div class="left">
 			<h1>S’INSCRIRE</h1>
 			<h5 class="create-admin-title">Pour proposer des quizz</h5>
-			<?php if (isset($erreurMessage)) {
-				echo "<p class='erreurMessage'>".$erreurMessage."</p>";
-			} ?>
+			<?php 
+				if (isset($erreurMessage)) {
+					echo "<p class='erreurMessage'>".$erreurMessage."</p>";
+				}elseif (isset($succesMessage)) {
+					echo "<p class='succesMessage'>".$succesMessage."</p>";
+				}
+			?>
 			<hr class="create-admin-limiter">
-			<form action="" method="post" id="form-connexion" enctype="multipart/form-data">
+			<form action="" method="post" id="form-validation" enctype="multipart/form-data">
 			<p><input class="create-admin-input" hidden="true" value="admin" type="text" name="profil"></p>
 			<p><label class="create-admin-label" for="prenom">Prénom</label></p>
 			<p><input class="create-admin-input" value="<?php if(isset($_POST['prenom'])){ echo $_POST['prenom']; } ?>" error="error-1" placeholder="Tapez le prénom" type="text" id="prenom" name="prenom"></p>
@@ -78,41 +83,3 @@
 		</div>
 	</div>
 </div>
-<script type="text/javascript">
-	document.getElementById("form-connexion").addEventListener("submit",function(e){
-		const inputs= document.getElementsByTagName("input");
-		var error=false;
-		for(input of inputs){
-			if(input.hasAttribute("error")){
-				var idDivError=input.getAttribute("error");
-			if(!input.value){
-				document.getElementById(idDivError).innerText="Ce champ est obligatoire"
-				error=true;
-				}
-				
-			}
-		}
-		if(error){
-			e.preventDefault();
-			return false;
-		}
-	})
-	const inputs= document.getElementsByTagName("input");
-	for(input of inputs){
-		input.addEventListener("keyup",function(e){
-			if (e.target.hasAttribute("error")){
-				var idDivError=e.target.getAttribute("error");
-				document.getElementById(idDivError).innerText=""
-			}
-		})
-	}
-	var avatarSection=document.getElementById("avatarSection");
-	function affichageAvatar(){
-		var avatar=document.getElementById("avatar");
-		var lireAvatar= new FileReader();
-		lireAvatar.readAsDataURL(avatar.files[0]);
-		lireAvatar.onloadend=function(e){
-			avatarSection.innerHTML='<img class="signup-avatar" id="avatar" src="'+e.target.result+'" alt="">'
-		}
-	}
-</script>

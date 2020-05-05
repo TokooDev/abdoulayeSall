@@ -1,4 +1,5 @@
 <?php
+session_start();
 	if (isset($_POST['valider'])) {
 			$user=array();
 			$user['profil']=$_POST['profil'];
@@ -33,6 +34,7 @@
 								$users[]=$user;
 								$users=json_encode($users);
 								file_put_contents('fichiers/users.json', $users);
+								$_SESSION['succesMessage']="Inscription effectuée avec succés";
 								header("location: index.php");
 							}	
 					}
@@ -52,6 +54,7 @@
 	<meta name="author" content="Abdoulaye SALL" />
 	<meta name="description" content="Sonatel Academy, projet_02 php"/>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
 </head>
 <body>
 		<div class="header">
@@ -65,12 +68,14 @@
 		<div class="content">
 			<div class="sign-up">
 				<div class="left">
-					<form action="" method="POST" enctype="multipart/form-data" id="form-connexion">
+					<form action="" method="POST" enctype="multipart/form-data" id="form-validation">
 						<h1>S’INSCRIRE</h1>
 					<h5 class="sign-up-title">Pour tester votre niveau de culture générale</h5>
-					<?php if (isset($erreurMessage)) {
-						echo "<p class='erreurMessage'>".$erreurMessage."</p>";
-					} ?>
+					<?php 
+						if (isset($erreurMessage)) {
+							echo "<p class='erreurMessage'>".$erreurMessage."</p>";
+						}
+					?>
 					<hr class="form-limit">
 					<p><input class="create-admin-input" hidden="true" value="player" type="text" name="profil"></p>
 					<p><label class="sign-up-label" for="prenom">Prénom</label></p>
@@ -94,45 +99,6 @@
 				</div>
 			</div>
 		</div>
-<script type="text/javascript">
-	document.getElementById("form-connexion").addEventListener("submit",function(e){
-		const inputs= document.getElementsByTagName("input");
-		var error=false;
-		for(input of inputs){
-			if(input.hasAttribute("error")){
-				var idDivError=input.getAttribute("error");
-			if(!input.value){
-				document.getElementById(idDivError).innerText="Ce champ est obligatoire"
-				error=true;
-				}
-				
-			}
-		}
-		if(error){
-			e.preventDefault();
-			return false;
-		}
-	})
-	const inputs= document.getElementsByTagName("input");
-	for(input of inputs){
-		input.addEventListener("keyup",function(e){
-			if (e.target.hasAttribute("error")){
-				var idDivError=e.target.getAttribute("error");
-				document.getElementById(idDivError).innerText=""
-			}
-		})
-	}
-
-	var avatarSection=document.getElementById("avatarSection");
-	function affichageAvatar(){
-		var avatar=document.getElementById("avatar");
-		var lireAvatar= new FileReader();
-		lireAvatar.readAsDataURL(avatar.files[0]);
-		lireAvatar.onloadend=function(e){
-			avatarSection.innerHTML='<img class="signup-avatar" id="avatar" src="'+e.target.result+'" alt="">'
-		}
-	}
-</script>
-
+<script type="text/javascript" src="js/scripts.js"></script>
 </body>
 </html>

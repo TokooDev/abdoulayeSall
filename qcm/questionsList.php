@@ -9,16 +9,17 @@
 			        $nbreQuestion = file_get_contents('fichiers/nbreQuestion.json');
 			        $nbreQuestion = json_decode($nbreQuestion);
 			    ?>
-				<form method="post" action="" class="questions-list-form" >
-					<input class="input-nbrQuestion" type="text" name="nbreQuestion" value="<?php if(isset($nbreQuestion[0]))
+				<form method="post" action="" class="questions-list-form"  id="form-validation">
+					<input class="input-nbrQuestion" error="error-1" type="text" name="nbreQuestion" value="<?php if(isset($nbreQuestion[0]))
         {echo $nbreQuestion[0] ;} ?>">
 				<input class="btn-nbrQuestion" type="submit" name="btn-nbreQuestion" value="OK">
 				</form>
+				
 				<p>
 					<?php
 		        if(isset($_POST['btn-nbreQuestion'])){
-		            if(empty($_POST['nbreQuestion'])){
-		                echo '<p class="input-validation">Vueillez donner le nombre de questions</p>';
+		            if(empty($_POST['nbreQuestion']) || $_POST['nbreQuestion']<5){
+		                $errorMessage= '<p class="input-validation">Donnez un nombre supérieur ou égal à 5</p>';
 		            }
 		            else{
 		            	$nbreQuestion=array();
@@ -31,6 +32,12 @@
 		        ?>
 				</p>
 			</div>
+			<?php 
+			if (isset($errorMessage)) {
+				echo $errorMessage;
+			}
+			?>
+			<p class='create-admin-validation' id="error-1"></p>
 			<div class="questions-list-content">
 				<?php
 			        $questions = file_get_contents('fichiers/questions.json');

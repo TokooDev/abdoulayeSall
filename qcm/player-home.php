@@ -217,13 +217,12 @@ session_start();
 						                    }
 						                }
 						                else{
-						                    echo '<input error="error-1" placeholder="Tapez ici la reponse" id="reponse_texte0" name="reponse_texte0" class="sign-up-input" value="';
+						                    echo '<input placeholder="Tapez ici la reponse" id="reponse_texte0" name="reponse_texte0" class="sign-up-input" value="';
 						                    if(isset($_POST['reponse_texte0'])){
 						                        $_SESSION['reponse_texte0'] = $_POST['reponse_texte0'];
 						                        echo $_SESSION['reponse_texte0'];
 						                    }
 						                    echo '"/>';
-						                    echo '<p class="input-validation" id="error-1"></p>';
 						                }
 						            }
 						        }
@@ -549,34 +548,6 @@ session_start();
 				});
 			});
 		});
-
-		document.getElementById("game-form").addEventListener("submit",function(e){
-				const inputs= document.getElementsByTagName("input");
-				var error=false;
-				for(input of inputs){
-					if(input.hasAttribute("error")){
-						var idDivError=input.getAttribute("error");
-					if(!input.value){
-						document.getElementById(idDivError).innerText="Désolé mais vous êtes obligé de répondre"
-						error=true;
-						}
-						
-					}
-				}
-				if(error){
-					e.preventDefault();
-					return false;
-				}
-			})
-			const inputs= document.getElementsByTagName("input");
-			for(input of inputs){
-				input.addEventListener("keyup",function(e){
-					if (e.target.hasAttribute("error")){
-						var idDivError=e.target.getAttribute("error");
-						document.getElementById(idDivError).innerText=""
-					}
-				})
-			}
 	</script>
 </body>
 </html>

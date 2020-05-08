@@ -32,16 +32,16 @@ session_start();
 				<h1 class="admin-home-text">CRÉER ET PARAMÉRTER VOS QUIZZ</h1><span class="logout"><a class="btn-logout" href="#logout-popup">Déconnexion</a></span>
 			</div>
 			<div class="admin-home-content">
-				
-				<div class="side-navbar">
-					<div class="side-navbar-header">
-						<?php
+				<?php
 							if (isset($_SESSION['prenom']) && isset($_SESSION['nom']) && isset($_SESSION['avatar'])){
 								$prenom=$_SESSION['prenom'];
 								$nom=$_SESSION['nom'];
 								$avatar=$_SESSION['avatar'];
 							}
 						?>
+				<div class="side-navbar">
+					<div class="side-navbar-header">
+						
 						<div class="profil-avatar">
 							<img class="img-avatar" src="<?php echo $avatar; ?>">
 						</div>

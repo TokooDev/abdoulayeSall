@@ -77,12 +77,6 @@
                 break;
             }
 		}
-		$n=0;
-		foreach ($top5 as  $value) {
-			$top5['login']= json_encode($value['login']);
-			$top5['meileur_score'] =json_encode($value['meileur_score']);
-			$n++;
-		}
 		
 	?>
 <script src="js/chart/Chart.js"></script>
@@ -96,20 +90,20 @@
 	<div class="form-wizard-content-wrapper">
 		<div class="form-wizard-content show" data-tab-content="users">
 			<div class="stats">
-				<p class="usersTotal"><span><img class="statIcon" src="images/Icônes/users.png"></span> Nombre total d'utilisateurs: <?php echo $usersTotal;  ?></p>
-				<canvas id="pie" width="800" height="400"></canvas>
+				<p class="usersTotal"><span><img class="statIcon" src="images/icones/users.png"></span> Nombre total d'utilisateurs: <?php echo $usersTotal;  ?></p>
+				<canvas id="users" width="800" height="400"></canvas>
 			</div>
 		</div>
 		<div class="form-wizard-content" data-tab-content="questions">
 			<div class="stats">
-				<p class="usersTotal"><span><img class="statIcon" src="images/Icônes/question.png"></span> Nombre total de questions: <?php echo $questionsTotal;  ?></p>
-				<canvas id="line" width="800" height="400"></canvas>
+				<p class="usersTotal"><span><img class="statIcon" src="images/icones/question.png"></span> Nombre total de questions: <?php echo $questionsTotal;  ?></p>
+				<canvas id="questions" width="800" height="400"></canvas>
 
 			</div>	
 		</div>
 		<div class="form-wizard-content" data-tab-content="scores">
 			<div class="stats">
-				<canvas id="bar" width="800" height="400"></canvas>
+				<canvas id="scores" width="800" height="400"></canvas>
 
 			</div>
 		</div>		
@@ -117,117 +111,120 @@
 </div>
 <script type="text/javascript">
 	//Score
-var scores = document.getElementById('bar');
-var bar = new Chart(scores, {
-    type: 'line',
-    data: {
-        labels: [<?php echo $top5['login']; ?>],
-        datasets: [{
-            label: 'Score',
-            data: [<?php echo $top5['meileur_score']; ?>],
-            backgroundColor: ['#51BFD0','#3ADDD6','#e56CA7','#e56946','#F8FDFD'],
-            borderColor: [
-                '#51BFD0',
-                '#3ADDD6',
-                '#e56CA7',
-                '#e56946',
-                '#F8FDFD'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
+    var top5 =  JSON.parse('<?php echo json_encode($top5);?>');
+    var scores = document.getElementById('scores');
+    var scores = new Chart(scores, {
+        type: 'bar',
+        data: {
+            labels: [top5[0]['login'], top5[1]['login'],top5[2]['login'],
+                   top5[3]['login'],top5[4]['login']],
+            datasets: [{
+                label: 'Score',
+                data: [top5[0]['meileur_score'], top5[1]['meileur_score'],top5[2]['meileur_score'],
+                   top5[3]['meileur_score'],top5[4]['meileur_score']],
+                backgroundColor: ['#51BFD0','#3ADDD6','#e56CA7','#e56946','#F8FDFD'],
+                borderColor: [
+                    '#51BFD0',
+                    '#3ADDD6',
+                    '#e56CA7',
+                    '#e56946',
+                    '#F8FDFD'
+                ],
+                borderWidth: 1
             }]
         },
-        title: {
-            display: true,
-            text: "Représentation de l'évolution des scores",
-            position: 'bottom',
-            fontColor: '#666',
-            fontStyle: 'bold',
-            fontFamily:"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-            fontSize: 20
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            },
+            title: {
+                display: true,
+                text: "Représentation du top 5 des meilleurs scores",
+                position: 'bottom',
+                fontColor: '#666',
+                fontStyle: 'bold',
+                fontFamily:"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+                fontSize: 20
+            }
         }
-    }
-});
-//Utilisateurs
-var users = document.getElementById('pie');
-var pie = new Chart(users, {
-    type: 'pie',
-    data: {
-        labels: ['Adminitrateurs', 'Joueurs'],
-        datasets: [{
-            data: [<?php echo $adminsCount;  ?>, <?php echo $playersCount;  ?>],
-            backgroundColor: [
-                '#51BFD0',
-                '#e56CA7'
-            ],
-            borderColor: [
-                '#51BFD0',
-                '#e56CA7'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        title: {
-            display: true,
-            text: 'Représentation des types de compte',
-            position: 'bottom',
-            fontColor: '#666',
-            fontStyle: 'bold',
-            fontFamily:"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-            fontSize: 20
+    });
+    //Utilisateurs
+    var users = document.getElementById('users');
+    var users = new Chart(users, {
+        type: 'pie',
+        data: {
+            labels: ['Adminitrateurs', 'Joueurs'],
+            datasets: [{
+                data: [<?php echo $adminsCount;  ?>, <?php echo $playersCount;  ?>],
+                backgroundColor: [
+                    '#51BFD0',
+                    '#e56CA7'
+                ],
+                borderColor: [
+                    '#51BFD0',
+                    '#e56CA7'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Représentation des types de compte',
+                position: 'bottom',
+                fontColor: '#666',
+                fontStyle: 'bold',
+                fontFamily:"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+                fontSize: 20
+            }
         }
-    }
-});
+    });
 
-//Questions
-var questions = document.getElementById('line');
-var line = new Chart(questions, {
-    type: 'bar',
-    data: {
-        labels: ['Text', 'Unique', 'Multiple'],
-        datasets: [{
-            label: 'Nombre',
-            data: [<?php echo $textCount;  ?>, <?php echo $uniqueCount;  ?>, <?php echo $multipleCount;  ?>],
-            backgroundColor: [
-                 '#51BFD0',
-                '#3ADDD6',
-                '#e56CA7'
-            ],
-            borderColor: [
-                 '#51BFD0',
-                '#3ADDD6',
-                '#e56CA7'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
+    //Questions
+    var questions = document.getElementById('questions');
+    var questions = new Chart(questions, {
+        type: 'bar',
+        data: {
+            labels: ['Text', 'Unique', 'Multiple'],
+            datasets: [{
+                label: 'Nombre',
+                data: [<?php echo $textCount;  ?>, <?php echo $uniqueCount;  ?>, <?php echo $multipleCount;  ?>],
+                backgroundColor: [
+                     '#51BFD0',
+                    '#3ADDD6',
+                    '#e56CA7'
+                ],
+                borderColor: [
+                     '#51BFD0',
+                    '#3ADDD6',
+                    '#e56CA7'
+                ],
+                borderWidth: 1
             }]
         },
-        title: {
-            display: true,
-            text: 'Représentation du nombre de questions en fonction du type',
-            position: 'bottom',
-            fontColor: '#666',
-            fontStyle: 'bold',
-            fontFamily:"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-            fontSize: 20
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            },
+            title: {
+                display: true,
+                text: 'Représentation du nombre de questions en fonction du type',
+                position: 'bottom',
+                fontColor: '#666',
+                fontStyle: 'bold',
+                fontFamily:"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+                fontSize: 20
+            }
         }
-    }
-});
+    });
 
 
 </script>

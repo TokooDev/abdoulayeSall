@@ -118,12 +118,11 @@ if (isset($_POST['question'], $_POST['score'], $_POST['type_question'])){
             }
         }
         $question_js = file_get_contents('fichiers/questions.json');
-
         $question_js = json_decode($question_js, true);
         $question_js[] = $questions;
-
         $question_js = json_encode($question_js);
         file_put_contents('fichiers/questions.json', $question_js);
+        $succesMessage="Question créée avec succés";
     }
 }
 
@@ -141,9 +140,13 @@ if (isset($_POST['question'], $_POST['score'], $_POST['type_question'])){
 <body>
     <div>
         <p class="questions-creation-title">PARAMÉTREZ VOTRE QUESTION</p>
-        <?php if (isset($erreurMessage)) {
+        <?php 
+            if (isset($erreurMessage)) {
             echo "<p class='erreurMessage'>".$erreurMessage."</p>";
-        } ?>
+            } elseif (isset($succesMessage)) {
+                    echo "<p class='succesMessage'>".$succesMessage."</p>";
+            }
+        ?>
         <div class="questions-creation">
             <form action="#" method="post" name="form" id="form-validation">
                 <div class="create-question-section">

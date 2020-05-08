@@ -12,6 +12,7 @@ session_start();
 					if ($users[$i]['profil']=='admin') {
 						header('Location: admin-home.php?page=questionsList');
 					}elseif ($users[$i]['profil']=='player') {
+						$_SESSION['n']=1;
 						header('Location: player-home.php');
 					}else{
 						$erreurMessage="Ce type de compte n'exite pas";
@@ -50,13 +51,10 @@ session_start();
 				Formulaire de connexion<span class="btn-leave">&times;</span>
 				</div>
 				<div class="login-content">
-					<?php
-						
-							if (isset($_SESSION['succesMessage'])) {
-								$succesMessage=$_SESSION['succesMessage'];
-								echo "<p class='succesMessage'>".$succesMessage."</p>";
-							}
-						?>
+					<?php 
+					if (isset($_SESSION['succesMessage'])) {
+							echo "<p class='succesMessage'>".$_SESSION['succesMessage']."</p>";
+						} ?>
 					<form action="" method="POST" id="form-validation">
 						<div class="section">
 							<input class="input" error="error-1" placeholder="Login" value="<?php if(isset($_POST['login'])){ echo $_POST['login']; } ?>" type="text" name="login" id="login"> <label for="login"><img src="images/icones/ic-login.png"></label>

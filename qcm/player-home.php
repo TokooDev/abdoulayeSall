@@ -142,7 +142,7 @@ session_start();
 						        echo '" method="post" id="game-form">';
 						        $question_afficher = '';
 		        				$n=1;
-						        echo '<h1 class="questionTitle">Question '.$_SESSION['n'].'/' .$nbreQuestion[0]. '</h1>';
+						        echo '<h1 class="questionTitle">Question '.$_SESSION['n']++.'/' .$nbreQuestion[0]. '</h1>';
 						        $size = count($questions);
 						        $_SESSION['nbrpts'] = 0;
 						        if (isset($_GET['pages'])) {

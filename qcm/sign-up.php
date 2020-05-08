@@ -34,7 +34,7 @@ session_start();
 								$users[]=$user;
 								$users=json_encode($users);
 								file_put_contents('fichiers/users.json', $users);
-								$_SESSION['succesMessage']="Inscription effectuée avec succés";
+								$_SESSION['succesMessage']="Votre compte a été crée avec succés";
 								header("location: index.php");
 							}	
 					}

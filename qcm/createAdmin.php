@@ -33,7 +33,7 @@
 								$users[]=$user;
 								$users=json_encode($users);
 								file_put_contents('fichiers/users.json', $users);
-								$succesMessage="Admin créé avec succés";
+								$succesMessage="Compre administrateur créé avec succés";
 							}	
 					}
 				}

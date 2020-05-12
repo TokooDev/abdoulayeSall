@@ -23,9 +23,12 @@ Un mini-projet de quizz avec types de profil : Administrateur et joueur
 # 1-Authentification Admin:
       Login: admin
       mot de passe : admin
-# 2-Fonctionnalités :
-  -Authentification: Inscription, connexion et déconnexion
-  -Questions: Ajout, lister, pagination
-  -Joueurs: Lister, pagination
-  -Jeux: Jouer une partie, afficher son meilleur score, afficher le top5 des meilleurs score
-  -Un dashboard de visualisation de quelques données
+# 2-Fonctionnalités:
+      -Authentification: Inscription, connexion et déconnexion 
+      -Questions: Ajout, lister, pagination
+      -Joueurs: Lister, pagination
+      -Jeux: Jouer une partie, afficher son meilleur score, afficher le top5 des meilleurs score
+      -Un dashboard de visualisation de quelques données
+      
+      
+      

@@ -1,0 +1,38 @@
+body{
+    background-color: #f5efef !important;
+}
+.login-header{
+    background-color: #7da67d;
+}
+.login-content{
+    background-color: #f8fdfd;
+}
+.form-section{
+    margin-bottom: 8% !important;
+}
+.input-login{
+    background-color: #f5efef !important;
+    width: 95% !important;
+    margin-left: 3%;
+}
+.btn-login{
+    background-color: #7da67d !important;
+    border: 1px solid #7da67d !important;
+    margin-left: 3%;
+    font-size: 16px !important;
+    font-weight: bold !important;
+}
+.logo{
+    position : relative;
+    left:43%; 
+    width: 45px;
+    height: 70px;
+}
+.login-header-title{
+    position : relative;
+    left: 35%;
+    margin-top: -15px;
+    color: #f8fdfd;
+    font-weight: bold;
+    font-family: "Roboto";
+}

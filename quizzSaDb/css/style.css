@@ -18,9 +18,29 @@ body{
 .btn-login{
     background-color: #7da67d !important;
     border: 1px solid #7da67d !important;
-    margin-left: 3%;
+    margin-left: 6%;
     font-size: 16px !important;
     font-weight: bold !important;
+}
+.sign-up-link{
+    float: right;
+    color: #7da67d;
+    opacity: 0.5;
+}
+.sign-up-link:hover{
+    color: #7da67d;
+}
+.login-icon{
+    position: absolute;
+    right: 7%;
+    top: 15%;
+    color: #7da67d;
+}
+.password-icon{
+    position: absolute;
+    right: 7%;
+    top: 48%;
+    color: #7da67d;
 }
 .logo{
     position : relative;

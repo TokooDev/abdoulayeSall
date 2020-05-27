@@ -22,13 +22,20 @@
                     <div class="col-lg-10 col-md-10 col-sm-10 offset-sm-1 login-content pt-4">
                         <form action="">
                             <div class="form-group form-section">
-                            <input type="text" name="login" placeholder="Tapez votre login" class="form-control input-login">
+                            <input type="text" name="login" placeholder="Tapez votre login" class="form-control input-login"><i class="fas fa-user login-icon"></i>
                             </div>
                             <div class="form-group form-section">
-                            <input type="password" name="password" placeholder="Tapez votre login" class="form-control input-login">
+                            <input type="password" name="password" placeholder="Tapez votre mot de passe" class="form-control input-login"><i class="fas fa-lock password-icon"></i>
                             </div>
-                            <div class="form-group form-section">
-                            <input type="submit" name="valider" value="Se connecter" class="btn btn-success btn-login">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group form-section">
+                                    <input type="submit" name="valider" value="Se connecter" class="btn btn-success btn-login">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <a class="nav-link sign-up-link" href="#">S’inscrire pour jouer ?</a>
+                                </div>
                             </div>
                         </form>
                     </div>

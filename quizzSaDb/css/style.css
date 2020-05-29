@@ -1,8 +1,9 @@
 body{
     background-color: #f5efef !important;
 }
-.login-header{
+.green-header{
     background-color: #7da67d;
+    height: 13% !important;
 }
 .login-content{
     background-color: #f8fdfd;
@@ -10,12 +11,12 @@ body{
 .form-section{
     margin-bottom: 8% !important;
 }
-.input-login{
+.my-input{
     background-color: #f5efef !important;
     width: 95% !important;
-    margin-left: 3%;
+    margin-left: 2%;
 }
-.btn-login{
+.btn-green{
     background-color: #7da67d !important;
     border: 1px solid #7da67d !important;
     margin-left: 6%;
@@ -32,13 +33,13 @@ body{
 }
 .login-icon{
     position: absolute;
-    right: 7%;
+    right: 8%;
     top: 15%;
     color: #7da67d;
 }
 .password-icon{
     position: absolute;
-    right: 7%;
+    right: 8%;
     top: 48%;
     color: #7da67d;
 }
@@ -46,7 +47,7 @@ body{
     position : relative;
     left:43%; 
     width: 45px;
-    height: 70px;
+    height: 80px;
 }
 .login-header-title{
     position : relative;
@@ -55,4 +56,52 @@ body{
     color: #f8fdfd;
     font-weight: bold;
     font-family: "Roboto";
+}
+.signup-avatar{
+	width: 100%;
+	height: 70%;
+	border-radius: 50% 50%;
+}
+.avatar{
+    position: relative;
+    width: 100%;
+    height: 40%;
+	float: left;
+	padding-top: 30px;
+}
+.btn-logout{
+  background-color: #ba6502 !important;
+  border: 1px solid #ba6502 !important;
+}
+.btn-logout:focus{
+  background-color: #ba6502 !important;
+  border: 1px solid #ba6502 !important;
+  text-transform: none !important;
+}
+.admin-content{
+  position: absolute;
+  top: 120px;
+}
+.nav-section{
+  background-color: #F8FDFD;
+  box-shadow: 7px 8px 5px 0px rgba(209,240,211,0.56);
+}
+.nav-title{
+  font-size: 20px;
+  font-weight: bold;
+  color: #7da67d;
+}
+.nav-link{
+  color: #808080;
+  font-size: 20px;
+  font-weight: bold;
+}
+.nav-link:hover{
+  color: #7da67d;
+}
+.nav-text{
+  position: relative;
+  bottom: 5px !important;
+  font-size: 16px;
+  font-weight: bold;
 }

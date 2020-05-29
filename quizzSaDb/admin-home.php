@@ -43,7 +43,7 @@
                     <li class="mb-3"><a class="nav-link" href="admin-home.php?page=stats"><i class="fas fa-chart-line"></i> Visualisation</span></a></li>
                 </ul>
               </div>
-              <div class="col-lg-8 offset-1">
+              <div class="col-lg-8 offset-1 nav-section">
                 <?php
                     if (isset($_GET["page"])) {
                         include($_GET['page'].'.php');

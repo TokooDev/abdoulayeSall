@@ -1,0 +1,145 @@
+body{
+    background-color: #f5efef !important;
+}
+
+.form-section.success input{
+    border-color: #2ecc71;
+}
+.form-section.error input{
+    border-color: #e74c3c;
+}
+.form-section small{
+    color: #e74c3c;
+    position: absolute;
+    margin-top: 2px;
+    margin-left: 30px;
+    visibility: hidden;
+}
+.form-section.error small{
+    visibility: visible;
+    margin-left: 30px;
+}
+
+
+.green-header{
+    background-color: #7da67d;
+    height: 13% !important;
+}
+.login-content{
+    background-color: #f8fdfd;
+}
+.form-section{
+    margin-bottom: 8% !important;
+}
+.my-input{
+    background-color: #f5efef !important;
+    width: 95% !important;
+    margin-left: 2%;
+}
+.btn-green{
+    background-color: #7da67d !important;
+    border: 1px solid #7da67d !important;
+    margin-left: 6%;
+    font-size: 16px !important;
+    font-weight: bold !important;
+}
+.sign-up-link{
+    font-size: 18px;
+    text-decoration: none;
+    color: #7da67d;
+    opacity: 0.5;
+}
+.sign-up-link:hover{
+    color: #7da67d;
+    text-decoration: none !important;
+}
+.login-icon{
+    position: absolute;
+    right: 8%;
+    top: 15%;
+    color: #7da67d;
+}
+.password-icon{
+    position: absolute;
+    right: 8%;
+    top: 48%;
+    color: #7da67d;
+}
+.logo{
+    position : relative;
+    left:43%; 
+    width: 45px;
+    height: 80px;
+}
+.login-header-title{
+    position : relative;
+    left: 35%;
+    margin-top: -15px;
+    color: #f8fdfd;
+    font-weight: bold;
+    font-family: "Roboto";
+}
+.signup-avatar{
+	width: 100%;
+	height: 70%;
+	border-radius: 50% 50%;
+}
+.avatar{
+    position: relative;
+    width: 100%;
+    height: 40%;
+	float: left;
+	padding-top: 30px;
+}
+.btn-logout{
+  background-color: #ba6502 !important;
+  border: 1px solid #ba6502 !important;
+}
+.btn-logout:focus{
+  background-color: #ba6502 !important;
+  border: 1px solid #ba6502 !important;
+  text-transform: none !important;
+}
+.admin-content{
+  position: absolute;
+  top: 120px;
+}
+.nav-section{
+  background-color: #F8FDFD;
+  box-shadow: 5px 5px 5px 0px rgba(183, 202, 184, 0.56);
+}
+.content-to-load-section{
+  background-color: #F8FDFD;
+  box-shadow: 5px 5px 5px 0px rgba(183, 202, 184, 0.56);
+  margin-left: 50px;
+}
+.nav-title{
+  font-size: 20px;
+  font-weight: bold;
+  color: #7da67d;
+}
+.nav-link{
+  color: #808080;
+  font-size: 20px;
+  font-weight: bold;
+}
+.nav-link:hover{
+  color: #7da67d;
+}
+.title-green{
+  color: #7da67d;
+  font-size: 25px;
+}
+.text-green{
+  color: #7da67d;
+}
+border-greeen{
+  border: 1px solid #7da67d;
+}
+.btn-plus{
+  color: #7da67d;
+  font-size: 19px;
+}
+.btn-plus:hover{
+  color: #7da67d;
+}

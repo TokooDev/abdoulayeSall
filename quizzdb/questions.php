@@ -8,13 +8,13 @@ require_once ('functions/db.php');
 
 ?>
 <div class="row">
-    <div class="col-12 mt-4 ml-3">
+    <div class="col-12 mt-4 ml-lg-3">
         <div class="row">
             <div class="col-10">
                 <h5 class="title-green"> <i class="fas fa-list"></i> LISTE DES QUESTIONS</h5>
             </div>
             <div class="col-2">
-                <button type="button" class="btn btn-success btn-green" data-toggle="modal" data-target="#addQuestion"><i class="fas fa-plus-circle"></i> Ajouter</button>
+                <button type="button" class="btn btn-success btn-green" data-toggle="modal" data-target="#addQuestion"><i class="fas fa-plus-circle"></i> <span class="d-none d-md-inline d-sm-none d-xs-none d-xs-none d-lg-inline">Ajouter</span></button>
             </div>
         </div>
     </div>
@@ -23,8 +23,8 @@ require_once ('functions/db.php');
           <thead>
             <tr>
               <th scope="col">Question</th>
-              <th scope="col">Nombre de points</th>
-              <th scope="col">Type de question</th>
+              <th scope="col" class="text-center">Nombre de points</th>
+              <th scope="col" class="text-center">Type de question</th>
               <th scope="col" class="text-center">Action</th>
             </tr>
           </thead>
@@ -32,7 +32,7 @@ require_once ('functions/db.php');
             
           </tbody>
         </table>
-        <div id="questions_data">
+        <div lass="col-12 mt-4" id="questions_data">
         </div>    
         <input type="hidden" id="totalPages" value="<?php echo $totalPages; ?>">
     </div>

@@ -14,20 +14,19 @@ require_once ('functions/db.php');
                 <h5 class="title-green"> <i class="fas fa-list"></i> LISTE DES ADMINISTRATEURS</h5>
             </div>
             <div class="col-2">
-                <button type="button" class="btn btn-success btn-green" data-toggle="modal" data-target="#addAdmin"><i class="fas fa-plus-circle"></i> Ajouter</button>
+                <button type="button" class="btn btn-success btn-green" data-toggle="modal" data-target="#addAdmin"><i class="fas fa-plus-circle"></i> <span class="d-none d-md-inline d-sm-none d-xs-none d-xs-none d-lg-inline">Ajouter</span></button>
             </div>
         </div>
     </div>
     <div class="col-12 mt-4">
-        <div class="col-12 mt-4">
         <table class="table table-hover table-bordered">
             <thead>
                 <tr>
                     <th>Prénom</th>
                     <th>Nom</th>
-                    <th>Login</th>
-                    <th>Mot de passe</th>
-                    <th>Action</th>
+                    <th>Nom d'utilisateur</th>
+                    <th class=" text-center d-none d-md-block d-sm-none d-xs-none d-xs-none d-lg-block">Etat du compte</th>
+                    <th class="text-center">Action</th>
                 </tr>
             </thead>
             <tbody id="content" class="admins_data">     
@@ -36,7 +35,7 @@ require_once ('functions/db.php');
         <div id="admins_data">
         </div>    
         <input type="hidden" id="totalPages" value="<?php echo $totalPages; ?>">
-    </div>
+   
     </div>
     
 </div>

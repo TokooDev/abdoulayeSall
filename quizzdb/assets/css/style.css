@@ -2,28 +2,12 @@ body{
     background-color: #f5efef !important;
 }
 
-.form-section.success input{
-    border-color: #2ecc71;
+.bg-green{
+  background-color: #7da67d5c;
 }
-.form-section.error input{
-    border-color: #e74c3c;
-}
-.form-section small{
-    color: #e74c3c;
-    position: absolute;
-    margin-top: 2px;
-    margin-left: 30px;
-    visibility: hidden;
-}
-.form-section.error small{
-    visibility: visible;
-    margin-left: 30px;
-}
-
-
 .green-header{
     background-color: #7da67d;
-    height: 13% !important;
+    height: 15% !important;
 }
 .login-content{
     background-color: #f8fdfd;
@@ -111,7 +95,6 @@ body{
 .content-to-load-section{
   background-color: #F8FDFD;
   box-shadow: 5px 5px 5px 0px rgba(183, 202, 184, 0.56);
-  margin-left: 50px;
 }
 .nav-title{
   font-size: 20px;

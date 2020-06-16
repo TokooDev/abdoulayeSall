@@ -16,8 +16,8 @@ while ($row = $users->fetch(PDO::FETCH_ASSOC)) {
         $data.='<td>'.$row["prenom"].'</td>';
         $data.='<td>'.$row["nom"].'</td>'; 
         $data.='<td>'.$row["login"].'</td>';
-        $data.='<td>'.$row["mdp1"].'</td>';
-        $data.='<td>
+        $data.='<td class=" text-center d-none d-md-block d-sm-none d-xs-none d-xs-none d-lg-block">'.$row["statut"].'</td>';
+        $data.='<td class="text-center">
         <button onclick="GetAdminDetails('.$row["idUser"].')" class="btn btn-info"><i class="fas fa-marker"></i></button>
                 <button onclick="DeleteAdmin('.$row["idUser"].')" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
         </td>'; 

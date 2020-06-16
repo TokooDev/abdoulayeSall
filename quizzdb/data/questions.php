@@ -14,8 +14,8 @@ $data = '';
 while ($row = $questions->fetch(PDO::FETCH_ASSOC)) {
         $data.='<tr>'; 
         $data.='<td>'.$row["question"].'</td>';
-        $data.='<td>'.$row["score"].'</td>'; 
-        $data.='<td>'.$row["type"].'</td>';
+        $data.='<td class="text-center">'.$row["score"].'</td>'; 
+        $data.='<td class="text-center">'.$row["type"].'</td>';
         $data.='<td class="text-center">
         		<button onclick="GetQuestionDetails('.$row["id"].')" class="btn btn-info"><i class="fas fa-marker"></i></button>
                 <button onclick="DeleteQuestion('.$row["id"].')" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>'; 

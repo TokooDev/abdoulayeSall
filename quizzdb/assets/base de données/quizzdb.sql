@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 09 juin 2020 à 20:16
+-- Généré le :  mar. 16 juin 2020 à 21:45
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `score` int(50) NOT NULL,
   `type` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `questions`
@@ -43,10 +43,11 @@ CREATE TABLE IF NOT EXISTS `questions` (
 
 INSERT INTO `questions` (`id`, `question`, `score`, `type`) VALUES
 (1, 'Les précurseurs d\'internet sont :', 7, 'unique'),
-(4, 'La première école de codage gratuite est :', 10, 'unique'),
-(3, 'Les langages web sont', 5, 'multiple'),
-(7, 'Quelles sont les régions du Sénégal ', 5, 'multiple'),
-(8, 'Qui est le président du senegal', 5, 'text');
+(4, 'La première école de codage gratuite est :', 5, 'unique'),
+(15, 'il fait quelle heure ?', 5, 'text'),
+(14, 'D\'où vient le covid-19?', 7, 'unique'),
+(11, 'Le président du sénégal est', 4, 'text'),
+(10, 'Les langages web sont', 8, 'multiple');
 
 -- --------------------------------------------------------
 
@@ -61,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `reponses` (
   `juste` int(50) NOT NULL,
   `id_question` int(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `reponses`
@@ -70,16 +71,15 @@ CREATE TABLE IF NOT EXISTS `reponses` (
 INSERT INTO `reponses` (`id`, `reponse`, `juste`, `id_question`) VALUES
 (1, 'GAFAM', 1, 1),
 (2, 'CIA/FBI', 0, 1),
-(3, 'html', 1, 3),
-(4, 'js', 1, 3),
-(5, 'word', 0, 3),
+(19, 'css', 1, 10),
+(18, 'html', 1, 10),
 (6, 'Sonatel academy', 1, 4),
 (7, 'ISM', 0, 4),
-(11, 'Dakar', 1, 7),
-(12, 'matam', 1, 7),
-(13, 'pikine', 1, 7),
-(14, 'podor', 0, 7),
-(15, 'Macky SALL', 1, 8);
+(26, 'il fait 12h', 1, 15),
+(25, 'USA', 0, 14),
+(24, 'CHINE', 1, 14),
+(21, 'Macky SALL', 1, 11),
+(20, 'word', 0, 10);
 
 -- --------------------------------------------------------
 
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `avatar` varchar(255) NOT NULL,
   `statut` varchar(20) NOT NULL,
   PRIMARY KEY (`idUser`)
-) ENGINE=MyISAM AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `users`
@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`idUser`, `profil`, `prenom`, `nom`, `login`, `mdp1`, `avatar`, `statut`) VALUES
 (1, 'admin', 'tokosel abdoulaye', 'sall', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'assets/images/users-images/admin.png', 'actif'),
-(18, 'player', 'ousmane', 'traore', 'ousmane', '81dc9bdb52d04dc20036dbd8313ed055', 'assets/images/users-images/9d8031f6d1c24bdbb64e020f2b657ac6.jpg', 'bloqué'),
+(18, 'player', 'ousmane', 'traore', 'ousmane', '81dc9bdb52d04dc20036dbd8313ed055', 'assets/images/users-images/9d8031f6d1c24bdbb64e020f2b657ac6.jpg', 'actif'),
 (7, 'admin', 'Abdoulaye ', 'Sall', 'laye', '81dc9bdb52d04dc20036dbd8313ed055', 'assets/images/users-images/20171009_083630.jpg', 'actif'),
 (8, 'player', 'Abdoulaye ', 'diatta', 'layee', '81dc9bdb52d04dc20036dbd8313ed055', 'assets/images/users-images/_20180910_232058.jpg', 'actif'),
 (11, 'admin', 'ousmane', 'diop', 'weuz', '81dc9bdb52d04dc20036dbd8313ed055', 'images/users-images/', 'actif'),
@@ -115,7 +115,7 @@ INSERT INTO `users` (`idUser`, `profil`, `prenom`, `nom`, `login`, `mdp1`, `avat
 (22, 'admin', 'aly tall', 'niang', 'aly', 'ec6a6536ca304edf844d1d248a4f08dc', 'assets/images/users-images/', 'actif'),
 (23, 'admin', 'Abou', 'Sy', 'abou', '81dc9bdb52d04dc20036dbd8313ed055', 'assets/images/users-images/', 'actif'),
 (24, 'admin', 'Amina', 'Diallo', 'amina', '81dc9bdb52d04dc20036dbd8313ed055', 'assets/images/users-images/', 'actif'),
-(25, 'player', 'Ibrahima', 'Sall', 'ibzo', '81dc9bdb52d04dc20036dbd8313ed055', 'assets/images/users-images/0e614a28d38d4d267ee04f0a2742ba77.jpg', 'actif'),
+(25, 'player', 'Ibrahima', 'Sall', 'ibzo', '81dc9bdb52d04dc20036dbd8313ed055', 'assets/images/users-images/0e614a28d38d4d267ee04f0a2742ba77.jpg', 'bloqué'),
 (26, 'player', 'Oumou', 'kalsoum', 'oumy', '81dc9bdb52d04dc20036dbd8313ed055', 'assets/images/users-images/Amitoulaye 20161221_211509.jpg', 'bloqué'),
 (27, 'admin', 'Amadou', 'almamy', 'amadou', '81dc9bdb52d04dc20036dbd8313ed055', 'assets/images/users-images/', 'actif'),
 (28, 'admin', 'Seynabou', 'thiam', 'seynabou', '81dc9bdb52d04dc20036dbd8313ed055', 'assets/images/users-images/', 'actif'),
@@ -129,7 +129,8 @@ INSERT INTO `users` (`idUser`, `profil`, `prenom`, `nom`, `login`, `mdp1`, `avat
 (39, 'admin', 'yero', 'sy', 'yero', '81dc9bdb52d04dc20036dbd8313ed055', 'assets/images/users-images/0e614a28d38d4d267ee04f0a2742ba77.jpg', 'actif'),
 (40, 'admin', 'Dieynaba', 'diop', 'diez', '81dc9bdb52d04dc20036dbd8313ed055', 'assets/images/users-images/20190409_212837.jpg', 'actif'),
 (41, 'admin', 'Salif', 'Mar', 'salif', '81dc9bdb52d04dc20036dbd8313ed055', 'assets/images/users-images/20190511_230650.jpg', 'actif'),
-(42, 'admin', 'Abdoul', 'SALL', 'abdoul', '81dc9bdb52d04dc20036dbd8313ed055', 'assets/images/users-images/20180608_221923.png', 'actif');
+(42, 'admin', 'Abdoul', 'SALL', 'abdoul', '81dc9bdb52d04dc20036dbd8313ed055', 'assets/images/users-images/20180608_221923.png', 'actif'),
+(43, 'admin', 'Mame khady', 'Leye', 'mame', 'ec6a6536ca304edf844d1d248a4f08dc', 'assets/images/users-images/20190822_230050.jpg', 'actif');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

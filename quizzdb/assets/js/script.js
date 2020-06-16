@@ -322,7 +322,7 @@ function UpdateQuestion() {
     var score = $("#update_score").val();
     var type = $("#update_type").val();
     var id = $("#hidden_id").val();
-    $.post("functions/UpdateQuestion.php", {
+    $.post("functions/updateQuestion.php", {
             id: id,
             question: question,
             score: score,

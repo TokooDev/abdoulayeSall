@@ -21,7 +21,7 @@ require_once ('functions/db.php');
 				<tr>
 					<th>Prénom</th>
 					<th>Nom</th>
-					<th>Login</th>
+					<th>Nom d'utilisateur</th>
 					<th>Mot de passe</th>
                     <th>Etat du compte</th>
 					<th>Action</th>

@@ -37,11 +37,9 @@ include_once 'functions/login.php';
                             
                             <div class="form-group form-section">
                             <input type="text" name="login" placeholder="Tapez votre login" class="form-control my-input"><i class="fas fa-user login-icon"></i>
-                            <small>validation error</small>
                             </div>
                             <div class="form-group form-section">
                             <input type="password" name="password" placeholder="Tapez votre mot de passe" class="form-control my-input"><i class="fas fa-lock password-icon"></i>
-                            <small>validation error</small>
                             </div>
                             <div class="row">
                                 <div class="col-6">

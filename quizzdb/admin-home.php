@@ -43,7 +43,7 @@ session_start();
             <li class="nav-item mt-3 d-md-block d-sm-block d-xs-block d-lg-none"><a class="nav-link" href="admin-home.php?page=questions"><i class="fas fa-question-circle"></i>  Questions</a></li>
                     <li class="nav-item mt-3 d-md-block d-sm-block d-xs-block d-lg-none"><a class="nav-link" href="admin-home.php?page=administrateurs"><i class="fas fa-lock"></i> Administrateurs</a></li>
                     <li class="nav-item mt-3 d-md-block d-sm-block d-xs-block d-lg-none"><a class="nav-link" href="admin-home.php?page=players"><i class="fas fa-users"></i> Joueurs</a></li>
-                    <li class="nav-item mt-3 d-md-block d-sm-block d-xs-block d-lg-none"><a class="nav-link" href="admin-home.php?page=players"><i class="fas fa-chart-line"></i> Visualisation</span></a></li>
+                    <li class="nav-item mt-3 d-md-block d-sm-block d-xs-block d-lg-none"><a class="nav-link" href="admin-home.php?page=stats"><i class="fas fa-chart-line"></i> Visualisation</span></a></li>
             <li class="nav-item mt-3">
               <a class="btn btn-success btn-logout" href="index.php">Déconnexion</a>
             </li>
@@ -59,7 +59,7 @@ session_start();
                     <li class="mb-3"><a class="nav-link" href="admin-home.php?page=questions"><i class="fas fa-question-circle"></i>  Questions</a></li>
                     <li class="mb-3"><a class="nav-link" href="admin-home.php?page=administrateurs"><i class="fas fa-lock"></i> Administrateurs</a></li>
                     <li class="mb-3"><a class="nav-link" href="admin-home.php?page=players"><i class="fas fa-users"></i> Joueurs</a></li>
-                    <li class="mb-3"><a class="nav-link" href="admin-home.php?page=players"><i class="fas fa-chart-line"></i> Visualisation</span></a></li>
+                    <li class="mb-3"><a class="nav-link" href="admin-home.php?page=stats"><i class="fas fa-chart-line"></i> Visualisation</span></a></li>
                 </ul>
               </div>
               <div class="col-lg-9 ml-lg-5 col-md-11 col-sm-12 ml-md-5 content-to-load-section">
